@@ -4,14 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class timeline extends Model
+class Timeline extends Model
 {
-    protected $fillable = [
-        'user_id',
-        'text',
-        'delflag',
-        'created',
-        'modified',
-        'timeline_fixed'
-    ];
+    //
 }

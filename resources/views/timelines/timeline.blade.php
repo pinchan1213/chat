@@ -2,7 +2,7 @@
 @section('content')
 <header class="header float top">
   <div class="timeline_width timeline_wrapper">
-          <form action="" method="get" class="search_form">
+          <form method="post" class="search_form">
             <input type="text" placeholder="検索" class="search">
             <button type="submit" id="search_btn"></button>
             <div class="dropdown">
@@ -16,6 +16,7 @@
                 </div><!--timeline_width-->
                 </header>
                 
+
     <ul class="timeline_wrapper">
     <li>
         <div class="timeline_content float">
@@ -27,6 +28,13 @@
                   <div class="composition p">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
                   <div class="line gap"></div>
                   <img src="{{ asset('images/good.png') }}" alt="" class="good">
+          </div>
+          <div class="list-group">
+            @foreach($timelines as $timeline)
+              <a href="{{ route('timelines.index', ['id' => $timeline->id]) }}" class="list-group-item">
+                {{ $timeline->text }}
+              </a>
+            @endforeach
           </div>
       </li>
     </ul>

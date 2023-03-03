@@ -6,8 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use App\Mail\ResetPassword;
 
-class User extends Model
+class User extends Authenticatable
 {
     use Notifiable;
     protected $guarded = array('id');
@@ -38,4 +39,13 @@ class User extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function post()
+    {
+        return $this->hasMany('App\Post');
+    }
+    public function sendPasswordResetNotification($token)
+    {
+        Mail::to($this)->send(new ResetPassword($token));
+    }
 }
