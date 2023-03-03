@@ -1,0 +1,469 @@
+@charset 'utf-8';
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+}
+
+body{
+  margin: 0 0 0 0;
+}
+
+a{
+  text-decoration: none;
+  color: #808080;
+}
+
+.p{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.btnB {
+  text-align: center;
+  background-color: #f6adc6;
+  line-height: 2;/*文字を中央に*/
+  font-size: 30px;
+  color: #fff;
+  width: 200px;
+  height: 70px;
+  border: none;
+}
+
+/*==================================================================  共通クラス============================================*/
+.float{
+  margin-bottom: 20px;
+}
+
+.top{
+  padding-top: 20px;
+}
+
+.btn {
+  text-align: center;
+  margin: 0 auto;
+  background-color: #f6adc6;
+  line-height: 2;/*文字を中央に*/
+  font-size: 30px;
+  color: #fff;
+  width: 300px;
+  height: 70px;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+
+.back::before{
+  content: '';
+  background-image: url('../images/back2.png');
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  left: -3px;
+  right: -3px;
+  filter: blur(1.5px);
+  z-index: -1;
+  /* height: 670px; */
+  background-position: center center;/*画像を中央に配置*/
+  background-repeat: no-repeat;/*画像を繰り返し表示しない*/
+  background-size: cover;/*レスポンシブ対応*/
+}
+
+
+.content{
+  margin: 0 auto;
+  text-align: center;
+  /* margin-top: 10px; */
+  /* background-color: #CBBCCC; */
+  max-width: 650px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.form_flame{
+  position: relative;
+  /* margin: 2em auto; */
+  padding:2.5em;/*内側余白*/
+  /* margin: 25px 50px; */
+  background: repeating-linear-gradient(-45deg, #EEDED6, #EEDED6 5px, #FDFBFA 0, #FDFBFA 10px); /* ストライプの色 */
+  /* margin-top: 5em; */
+  z-index: 1;
+  max-width: 670px;
+}
+
+.form_flame::before{
+	border-radius: 5px;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 10px;
+	z-index: -1;
+}
+
+
+.form_flame::after{
+  background-color: rgba(255,255,255,0.8); /*文字部分背景色・透過度 */
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+  margin: 20px;
+}
+
+
+input[type="text"]{
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.text{
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 0.2em;
+  float: left;
+}
+
+.search_form{
+  display: flex;
+  justify-content:right;
+}
+
+.search{
+ display: inline-block;
+ max-width: 350px;
+ border: none;
+}
+
+#search_btn{
+ background-image: url(../images/serch.png);
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-color: #f6adc6;
+ outline : none;
+ display: inline-block;
+ width: 52px;
+ height: 50px;
+ border: none;
+ border-radius: 1em;
+}
+
+.composition{
+  line-height: 1.5;
+  display: block;
+}
+
+.timeline_flex{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.timeline_img{
+  width: 55px;
+  overflow: hidden;
+}
+
+.timeline_wrapper{
+  margin: 0 auto;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.user{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.timeline_width{
+  justify-content: right;
+}
+
+.line{
+  border: solid 1px #808080;
+}
+
+.good{
+  width: 40px;
+}
+
+#pin_img{
+  width: 40px;
+  margin-left:auto;
+}
+
+.gap{
+  margin-top: 20px;
+}
+/*==========================   共通クラス終了  ===================================*/
+
+
+/*      top.blade.php         */
+.btn_list{
+  margin: 0 auto;
+  text-align: center;
+  margin-left: 30px;
+}
+
+
+
+.main{
+  text-align: center;
+}
+
+
+.logo{
+  margin: 0 auto;
+  display: block;
+   width: 500px;
+   height: 450px;
+   margin-bottom: 30px;
+}
+
+
+/*           new.blade.php                */
+
+
+input{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+
+/*        make_timeline.dlade.php                  */
+.header{
+  max-width: 1440px;
+  background-color: #f6adc6;
+  width: 100%;
+  height: 100px;
+}
+.all{
+  display: block;
+  padding: 10px;
+}
+
+.move,.change{
+  background-color: black;
+  line-height: 2;/*文字を中央に*/
+  font-size: 20px;
+  color:#f6adc6;
+  width: 250px;
+  height: 70px;
+  border-radius: 50px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.profile{
+
+}
+
+.composition{
+
+}
+
+.name{
+
+}
+
+/*         main_timeline.php            */
+.timeline_img, .user,.composition{
+  display: inline;
+}
+
+
+/*         fixed.blade.php                   */
+.fixed_title{
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0 auto;
+}
+
+/*       make.blade.php                                   */
+.move_form{
+  justify-content: right;
+}
+
+.move_btn{
+  float: right;
+  background-color: black;
+  text-align: center;
+  font-size: 20px;
+  color:#f6adc6;
+  width: 185px;
+  height: 55px;
+  border-radius: 50px;
+  margin: 10px;
+  padding: 10px;
+}
+
+/*        talk.blade.php           */
+.talk_btn{
+  background-image: url(../images/mail.png);
+  width: 79px;
+  height: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 3px;
+  background-color: #333;
+}
+
+.footer{
+  max-width: 1440px;
+  background-color: #f6adc6;
+  width: 100%;
+  height: 100px;
+}
+
+.talk_wrapper{
+  margin: 0 auto;
+  display: flex;
+}
+
+.talk_form{
+  display: flex;
+  justify-content: right;
+}
+
+
+section{
+  max-width: 1400px;
+}
+
+/* 全体の枠 */
+.talk {
+	padding:1em;
+	overflow:auto;
+}
+
+/* 左のトークボックス */
+.talk .talk_left{
+  width: 50%;
+}
+.talk .talk_left:before {
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	background-image:url(../images/human.png);
+}
+
+
+.talk .talk_left p:before {  /* 左ふきだしの左三角を描画 */
+	content: '';
+	position:absolute;
+	top:8px;
+	left:-20px;
+	border: 12px solid transparent;
+	border-right:12px solid white;
+}
+
+.talk .talk_left p { /* 左ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	margin:0 0 0 10px;
+}
+
+/* 右のトークボックス */
+.talk .talk_right::before { 
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+  float: right;
+	background-image:url(../images/human.png);  /* ←アイコンはここを変更 */
+}
+.talk .talk_right {
+	float:right; /* 右のふきだしは全体的に右寄せ */
+	margin-top:1em;
+  width: 50%;
+}
+.talk .talk_right p:after { /* 右ふきだしの右三角を描画 */
+	content: '';
+	position:absolute;
+	top:8px;
+	right:-20px;
+	border: 12px solid transparent;
+	border-left:12px solid #85e249;
+}
+.talk .talk_right p { /* 右ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:#85e249;
+	border-radius:10px;
+	padding:10px;
+	margin:0 10px 0 0;
+}
+
+
+/*              talk_all                  */
+.talk_screen{
+  margin-left: auto;
+  color: #808080;
+}
+
+
+
+/*          header.mypage                */
+.header_mypage{
+  height: 100px;
+  background-color: #333;
+}
+
+.mypage_text{
+  text-align: center;
+  color: #f6adc6;
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.mypage_img{
+  display:block;
+  margin: 0 auto;
+  width: 200px;
+  height: auto;
+  margin-top: 60px;
+}
+
+.mypage_name{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mypage_wrapper{
+  height: 600px;
+}
