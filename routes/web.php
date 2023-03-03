@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TimelineController;
+use App\Http\Controllers\PostController;
 
 
 /*
@@ -20,6 +22,15 @@ Auth::routes();
 Route::get('/',function(){
     return view('top');
 });
+//後で消す
+// Route::get('/timeline',function(){
+//     return view('timelinestimeline');
+// });
+route::get('post','PostController@showTimelinePage')->name('posts.create');
+route::post('post','PostController@create');
+
+
+
 
 
 // Route::group(['middleware' => 'auth'], function() {
@@ -29,7 +40,7 @@ Route::get('/reset',function(){
 });
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
-Route::post('/timeline', 'TimelineController@index')->name('timelines.index');
+Route::post('/timeline', 'TimelineController@index');
 //固定タイムライン
 Route::get('/fixed',function(){
     return view('fixed_timeline');

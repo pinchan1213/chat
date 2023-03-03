@@ -6,8 +6,6 @@
   <main>
   <div class="timeline_content float top">
         <div class="timeline_flex float">
-        <form action="{{ route('timeline') }}" method="post">
-            {{ csrf_field() }}
             <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img">
                 <h3 class="user p">名前</h3>
           </div>
@@ -15,7 +13,7 @@
       <div class="composition p">
           </div><!--composition-->
             </div><!--timeline_wrapper-->
-              <form action="{{ route('posts')}}" method="post">
+              <form action="{{ route('timelines.index')}}" method="post">
               {{ csrf_field() }}
               <input type="text" class="form-control" name="post" id="title" value="{{ old('post') }}" />
               <button type="submit" class="move_btn">投稿する</button>

@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/timeline';//登録に成功したときのリダイレクト処理
+    protected $redirectTo = '/';//登録に成功したときのリダイレクト処理
 
     /**
      * Create a new controller instance.
