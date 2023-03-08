@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Timeline;
+use Illuminate\Support\Facades\Auth;
 
 class TimelineController extends Controller
 {
@@ -13,13 +14,17 @@ class TimelineController extends Controller
         return view('timelines.timeline',[
             'timelines' =>$timelines,
         ]);
-        
+    }
+
+    public function create(Request $request){
         $timelines = new timeline();
 
-        $timelines->text = $request->text;
+        $timelines->user_id = Auth::user()->id;
+
+        $timelines->post = $request->post;
 
         $timelines->save();
 
-        return redirect()->route('timelines.timeline');
+        return redirect()->route('timelines.index');
     }
 }

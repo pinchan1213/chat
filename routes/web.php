@@ -22,10 +22,7 @@ Auth::routes();
 Route::get('/',function(){
     return view('top');
 });
-//後で消す
-// Route::get('/timeline',function(){
-//     return view('timelinestimeline');
-// });
+
 route::get('post','PostController@showTimelinePage')->name('posts.create');
 route::post('post','PostController@create');
 
@@ -40,14 +37,14 @@ Route::get('/reset',function(){
 });
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
-Route::post('/timeline', 'TimelineController@index');
+Route::post('/timeline', 'TimelineController@create')->name('timelines.create');
 //固定タイムライン
 Route::get('/fixed',function(){
     return view('fixed_timeline');
 });
 //トーク画面
 Route::get('/talk',function(){
-    return view('talk');
+    return view('talks.talk');
 });
 //トーク一覧
 Route::get('/talk_all',function(){
@@ -59,10 +56,11 @@ Route::get('/mypage',function(){
 })->name('mypage');
 
 //ajax通信のルーティング
-// Route::post('/newmessage', 'ChatroomController@newmessage');
-// Route::get('/allmessage','ChatroomController@allmessage');
+Route::post('/newmessage', 'ChatroomController@newmessage');
+Route::get('/allmessage','ChatroomController@allmessage');
 
 //チャットルームを表示
-// Route::get('/chatroom', 'ChatroomController@index')->middleware('auth');
+Route::get('/chatroom', 'ChatroomController@index')->middleware('auth');
+
 
 // });//ミドルウェア認証

@@ -4,7 +4,7 @@ window.Echo.channel('message-added-channel')
    console.log(data);
    let newmessage = data.message[0].message;
    let name = data.message[1].name;
-   let message = document.querySelector('#message_area');
+   let message = document.querySelector('#talk_area');
    message.insertAdjacentHTML('beforeend',name+" "+newmessage +" "+data.message[0].created_at+"<br>");
  });
 
@@ -19,7 +19,7 @@ window.Echo.channel('message-added-channel')
        const json = xhr.responseText;
        const obj = JSON.parse(json);
        console.log(obj);
-       const message = document.querySelector('#message_area');
+       const message = document.querySelector('#talk_area');
        for(let i = 0; i < obj.length; i++){
        message.insertAdjacentHTML('beforeend' , obj[i].user.name+" "+obj[i].message +" "+obj[i].created_at+"<br>");
        }
@@ -30,7 +30,7 @@ window.Echo.channel('message-added-channel')
 
  //送信ボタンをクリックした時
  submitbutton.addEventListener('click',()=>{
-     const message = document.querySelector('#message');
+     const message = document.querySelector('#talk');
      console.log(message.value);
 
      const xhr = new XMLHttpRequest();
