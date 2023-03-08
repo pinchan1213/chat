@@ -17,7 +17,7 @@
       {{ csrf_field() }}
       <input type="text" class="form-control" name="post" id="title" value="{{ old('post') }}" />
       <button type="submit" class="move_btn">投稿する</button>
-      <div class="line gap float"></div>
+      <div class="line gap"></div>
     </form>
 </main>
 @endsection

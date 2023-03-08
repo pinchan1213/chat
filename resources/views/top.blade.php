@@ -1,6 +1,5 @@
 @extends('template')
 @section('content')
-<body>
   <div class="back">
       <main class="main">
         <div class="logo">

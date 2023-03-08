@@ -23,8 +23,13 @@ Route::get('/',function(){
     return view('top');
 });
 
-route::get('post','PostController@showTimelinePage')->name('posts.create');
-route::post('post','PostController@create');
+//タイムライン投稿
+route::get('post','PostController@showTimelinePage')->name('posts.create');//投稿処理
+route::post('post','PostController@create');//一覧表示
+//トーク送信
+Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
+Route::post('/talk', 'TalkController@create');
+Route::post('/talk', 'TalkController@index')->name('talks.index');;
 
 
 
@@ -54,13 +59,6 @@ Route::get('/talk_all',function(){
 Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
-
-//ajax通信のルーティング
-Route::post('/newmessage', 'ChatroomController@newmessage');
-Route::get('/allmessage','ChatroomController@allmessage');
-
-//チャットルームを表示
-Route::get('/chatroom', 'ChatroomController@index')->middleware('auth');
 
 
 // });//ミドルウェア認証

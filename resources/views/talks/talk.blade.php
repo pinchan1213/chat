@@ -1,86 +1,34 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE HTML>
+<html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>Todos</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title></title>
     </head>
-      <body>
-            <div id="talk_area">
-
-            </div>
-            <div>
-              <textarea id = "talk" rows="5" cols="100"></textarea>
-              <button id="submit">送信</button>
-            </div>
-
-            <script src="/js/app.js"></script>
-            <script src="{{asset('js/chat.js')}}"></script>
-      </body>
-      </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <header class="header">
-<div class="timeline_width timeline_wrapper">
-          <form action="" method="get" class="search_form">
-            @csrf
-            <input type="text" placeholder="トーク内検索" class="search">
-            <button type="submit" id="search_btn"></button>
-          </form>
-        </div><!--timeline_width-->
 </header>
 <section>
 <div class="talk">
 	<div class="talk_left">
-		<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+		<p></p>
 	</div>
 	<div class="talk_right">
-		<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキス</p>
+  @foreach ($talks as $talk)
+		<p>{{ $talk->content }}</p>
 	</div>
 </div>
 </section>
 
 <footer class="footer">
-    <form action="" method="get" class="talk_form">
+    <form action="{{ route('talks.create')}}" method="post" class="talk_form" id="talk_area">
+    {{ csrf_field() }}
       <div class="talk_wrapper">
-      <input type="text" class="search">
-       <input type="submit" value=""  class="talk_btn">
+      <input type="text" id="talk" class="search">
+       <input type="submit" value=""  class="talk_btn" value="{{ old('talk') }}"/>
+       @endforeach
       </div>
     </form>
 </footer>
-@endsection -->
+    </body>
+</html>

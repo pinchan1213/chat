@@ -3,31 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use \App\Talk;
 
 class TalkController extends Controller
 {
-        //チャット画面を表示
-        public function index()
-        {
-            return view('talks.talk');
-        }
-
-            //新しいメッセージが来たとき
-    public function newmessage(Request $request)
+    public function showTalkPage()
     {
-        $message = new Message();
-        $message->message = $request->message;
-        $message->user_id = Auth::id();
-        $message->save();
-
-        //イベント発動
-        //新しいメッセージをpusherに
-        event(new MessageAdded([$message,Auth::user()]));
+        $talks = Talk::latest()->get();
+        return view('talks.talk',compact('talks')); // resource/views/talks/talk
     }
 
-        //最初にアクセスした時、全メッセージを返す
-        public function allmessage()
-        {
-            return Message::with('user')->get();
-        }
+    public function create(Request $request)
+    {
+        $talks = Talk::all();
+        $talks = new talk();
+        $talks->user_id = Auth::user()->id;
+        $talks->content = $request->content;
+        $talks->save();
+        $validator = $request->validate([
+            'content' => ['required', 'string', 'max:150'], // 必須・文字であること・150文字まで
+        ]);
+        Talk::create([ // Talksテーブルにデータを保存
+            'user_id' => Auth::user()->id,
+            'name'=>Auth::user()->id,
+            // 'partner_id'->Auth::user()->id,
+            'content' => $request->content, //トーク内容
+        ]);
+        return back(); // リクエスト送ったページに戻る
+    }
+
+    public function index(){
+                $talks = Talk::all();//タイムラインテーブルの情報を取得する
+
+        return view('talks.talk',[
+            'talks' =>$talks,
+        ]);
+    }
 }

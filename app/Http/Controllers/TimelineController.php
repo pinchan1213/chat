@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class TimelineController extends Controller
 {
     public function index(Request $request){
-        $timelines = Timeline::all();
+        $timelines = Timeline::all();//タイムラインテーブルの情報を取得する
 
         return view('timelines.timeline',[
             'timelines' =>$timelines,
@@ -17,14 +17,11 @@ class TimelineController extends Controller
     }
 
     public function create(Request $request){
-        $timelines = new timeline();
+        $talks = new talk();
+        $talks->user_id = Auth::user()->id;
+        $talks->post = $request->post;
+        $talks->save();
 
-        $timelines->user_id = Auth::user()->id;
-
-        $timelines->post = $request->post;
-
-        $timelines->save();
-
-        return redirect()->route('timelines.index');
+        return redirect()->route('timelines.create');
     }
 }

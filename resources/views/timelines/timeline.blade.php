@@ -29,7 +29,7 @@
 
       <div class="composition p"> {{ $timeline->post }}</div>
       <div class="line gap"></div>
-      <img src="{{ asset('images/good.png') }}" alt="" class="good">
+      <img src="{{ asset('images/good.png') }}" alt="" class="good float">
       @endforeach
     </div>
   </li>
