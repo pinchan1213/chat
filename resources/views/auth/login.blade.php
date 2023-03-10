@@ -11,13 +11,10 @@
                 @endforeach
               </div>
             @endif
-        <form method="post" action="">
+        <form method="post" action="{{ route('login') }}">
             @csrf
             <label class="text ">メールアドレス</label>
             <input type="text" name="email" id="email" value="{{ old('email') }}">
-            @if (isset($login_error))
-            <p>メールアドレスが一致しません</p>
-            @endif
             <label class="text">パスワード</label>
             <input type="text" name="password" id="password">
             <input type="submit" value="ログイン" class="btn" >

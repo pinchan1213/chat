@@ -1,7 +1,7 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -11,10 +11,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        users::table('users')->insert([
+        DB::table('users')->insert([
             'name' => 'test',
             'email' => 'dummy@email.com',
-            'password' => bcrypt('test1234'),
+            'password' => bcrypt('test1234'),//暗号化の関数
+            'newpassword' => bcrypt('test5678'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

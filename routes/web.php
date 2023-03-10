@@ -16,13 +16,18 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Auth::routes();
-
 //ログイン前のトップ画面
-Route::get('/',function(){
+Route::get('/top',function(){
     return view('top');
 });
 
+
+Auth::routes();
+
+
+//ログイン後のアクセスページ
+Route::get('/', 'HomeController@index')->name('home');
+//マイページ編集画面
 Route::get('/edit',function(){
     return view('edit');
 });
