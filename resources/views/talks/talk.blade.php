@@ -9,6 +9,7 @@
 	<div class="talk_right">
   @foreach ($talks as $talk)
 		<p>{{ $talk->content }}</p>
+  @endforeach
 	</div>
 </div>
 </section>
@@ -17,9 +18,8 @@
       <form action="{{ route('talks.create')}}" method="post" class="talk_form">
         @csrf
         <div class="talk_wrapper">
-        <input type="text" id="talk" class="search">
+        <input type="text" name="content" id="talk" class="search">
         <button type="submit" class="talk_btn"></button>
-        @endforeach
         </div>
       </form>
   </footer>

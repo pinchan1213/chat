@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class TimelineController extends Controller
 {
     public function index(Request $request){
-        $timelines = Timeline::all();//タイムラインテーブルの情報を取得する
+        $timelines = Timeline::orderBy('id', 'desc')->get();//タイムラインテーブルの情報を取得する
 
         return view('timelines.timeline',[
             'timelines' =>$timelines,
@@ -22,6 +22,7 @@ class TimelineController extends Controller
         $timelines->user_id = Auth::user()->id;
         $timelines->post = $request->post;
         $timelines->save();
+        // Auth::user()->posts()->save($timelines);
 
         return redirect()->route('timelines.index');
     }

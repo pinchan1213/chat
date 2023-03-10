@@ -10,7 +10,17 @@
           <button class="dropdown-item" type="button"><a href="fixed">固定タイムライン</a></button>
           <button class="dropdown-item" type="button"><a href="talk_all">トーク</a></button>
           <button class="dropdown-item" type="button"><a href="mypage">マイページ</a></button>
+          <button class="dropdown-item" type="button"><a href="#" id="logout">ログアウト</a></button>
+          <form id="logout-form" action="{{ route('top') }}" method="POST" style="display: none;">
+          @csrf
+        </form>
     </form>
   </div><!--timeline_width-->
 </header>
+<script>
+    document.getElementById('logout').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('logout-form').submit();
+    });
+  </script>
   @endsection
