@@ -19,8 +19,6 @@ class CreateTalksTable extends Migration
             $table->string('name');
             $table->integer('comment_num');
             $table->text('content');
-            $table->dateTime('created');
-            $table->dateTime('modified');
             $table->text('images');
             $table->integer('partner_id');
             $table->timestamps();
