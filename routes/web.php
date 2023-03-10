@@ -16,11 +16,15 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+// Auth::routes();
 
 //ログイン前のトップ画面
 Route::get('/',function(){
     return view('top');
+});
+
+Route::get('/edit',function(){
+    return view('edit');
 });
 
 //タイムライン投稿
@@ -52,6 +56,7 @@ Route::get('/fixed',function(){
 //     return view('talks.talk');
 // });
 Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
+Route::post('/talk', 'Auth\TimelineController@postTalk');  
 Route::post('/talk', 'TalkController@create');
 //トーク一覧
 Route::get('/talk_all',function(){

@@ -7,19 +7,19 @@ use App\Talk;
 class TalkController extends Controller
 {
     public function showCreateTalk(){
-        return view('talks.create');
+        return view('talks.talk',[
+        ]);
     }
 
     public function create(Request $request){
-        //インスタンスの作成
-        $talk = new Talk();
-        //入力値を代入
-        $talk->content = $request->content;
-        //インスタンスの状態をデータベースに書き込む
-        $talk->save();
-
-        return redirect()->route('talks.create',[
-
-        ])
+        $validator = $request->validate([
+            'content' => ['required', 'string', 'max:200'],
+        ]);
+        Talk::create([
+            'user_id' => Auth::user()->id,
+            'name'->Auth::user()->name,
+            'content' => $request->content,
+        ]);
+        return back();
     }
 }

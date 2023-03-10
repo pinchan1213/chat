@@ -11,7 +11,7 @@ img{
   padding: 0;
 }
 
-li{
+ligoo
   list-style: none;
 }
 
@@ -41,7 +41,7 @@ a{
 
 /*==================================================================  共通クラス============================================*/
 .float{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .top{
@@ -202,7 +202,7 @@ input[type="text"]{
 }
 
 .good{
-  width: 40px;
+  width: 30px;
 }
 
 #pin_img{

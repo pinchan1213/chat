@@ -12,7 +12,7 @@
         <ul class="btn_list">
             <li class="btn_item"><a href="talk_all">トーク</a></li>
             <li class="btn_item"><a href="main">タイムライン</a></li>
-            <li class="btn_item"><a href="#">変更する</a></li>
+            <li class="btn_item"><a href="edit">変更する</a></li>
         </ul>
     </div>
 </header>
