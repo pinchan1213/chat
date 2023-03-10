@@ -48,9 +48,11 @@ Route::get('/fixed',function(){
     return view('fixed_timeline');
 });
 //トーク画面
-Route::get('/talk',function(){
-    return view('talks.talk');
-});
+// Route::get('/talk',function(){
+//     return view('talks.talk');
+// });
+Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
+Route::post('/talk', 'TalkController@create');
 //トーク一覧
 Route::get('/talk_all',function(){
     return view('talk_all');

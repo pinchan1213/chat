@@ -17,11 +17,12 @@ class TimelineController extends Controller
     }
 
     public function create(Request $request){
-        $talks = new talk();
-        $talks->user_id = Auth::user()->id;
-        $talks->post = $request->post;
-        $talks->save();
+        $timelines = new timeline();
 
-        return redirect()->route('timelines.create');
+        $timelines->user_id = Auth::user()->id;
+        $timelines->post = $request->post;
+        $timelines->save();
+
+        return redirect()->route('timelines.index');
     }
 }

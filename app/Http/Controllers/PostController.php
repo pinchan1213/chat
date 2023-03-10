@@ -25,6 +25,6 @@ class PostController extends Controller
         'timeline_id'=>Auth::user()->id,
         'post'=>$request->post,
     ]);
-    return redirect()->route('timelines.timelen');
+    return redirect()->route('timelines.timeline');
    }
 }
