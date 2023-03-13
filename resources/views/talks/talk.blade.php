@@ -4,13 +4,15 @@
 <section>
 <div class="talk">
 	<div class="talk_left">
-		<p></p>
 	</div>
-	<div class="talk_right">
   @foreach ($talks as $talk)
-		<p>{{ $talk->content }}</p>
+	<div class="talk_right">
+  <ul class="ul_right">
+    <li>{{$talk->created_at}}</li>
+		<li class="talk_text">{{ $talk->content }}</li>
+  </ul>
+</div>
   @endforeach
-	</div>
 </div>
 </section>
 

@@ -38,8 +38,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function loggedOut($request)
-    {
-        return redirect(route('timeline'));
+    protected function loggedOut(\Illuminate\Http\Request $request) {
+        return redirect('/');
     }
 }

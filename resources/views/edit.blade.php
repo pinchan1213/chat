@@ -29,14 +29,5 @@
   </dl>
   <input type="submit" name="profileupdate" value="更新">
 </form>
-      <!-- <div class="mypage_name float top">{{ Auth::user()->name }}</div>    <div class="mypage_name float top">{{ Auth::user()->email }}</div>
-
-    <div class="line float"></div>
-        <ul class="btn_list">
-            <li class="btn_item"><a href="talk_all">トーク</a></li>
-            <li class="btn_item"><a href="main">タイムライン</a></li>
-            <li class="btn_item"><a href="#">変更する</a></li>
-        </ul>
-    </div> -->
 </header>
 @endsection

@@ -402,7 +402,6 @@ section{
 	vertical-align:top;
 	border-radius:50%;
 	background-size:cover;
-  float: right;
 	background-image:url(../images/human.png);  /* ←アイコンはここを変更 */
 }
 .talk .talk_right {
@@ -410,6 +409,12 @@ section{
 	margin-top:1em;
   width: 50%;
 }
+
+.ul_right{
+  float: right;
+}
+
+
 .talk .talk_right p:after { /* 右ふきだしの右三角を描画 */
 	content: '';
 	position:absolute;
@@ -418,7 +423,7 @@ section{
 	border: 12px solid transparent;
 	border-left:12px solid #85e249;
 }
-.talk .talk_right p { /* 右ふきだしの本体 */
+.talk .talk_right .talk_text { /* 右ふきだしの本体 */
 	display:inline-block;
 	position:relative;
 	background-color:#85e249;
@@ -466,4 +471,21 @@ section{
 
 .mypage_wrapper{
   height: 600px;
+}
+
+
+/*                お気に入り機能実装                 */
+.btn-good{
+  display: inline-block;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.btn-good:hover{
+  color: #f44336;
+}
+.active{
+  color: #f44336;
+}
+.btn-good .active{
+  color: #f44336;
 }

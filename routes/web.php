@@ -20,10 +20,11 @@ use App\Http\Controllers\PostController;
 Route::get('/',function(){
     return view('top');
 });
-Auth::routes();
+Route::get('/login',function(){
+    return view('auth.login');
+});
 
-
-
+//ミドルウェア認証
 Route::group(['middleware' => 'auth'], function() {
 //リセット画面
 Route::get('/reset',function(){
@@ -45,6 +46,7 @@ Route::post('/talk', 'TalkController@create');
 Route::post('/talk', 'TalkController@index')->name('talks.index');;
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
+Route::get('/timeline', 'TimelineController@serch')->name('timeline.serch');
 Route::post('/timeline', 'TimelineController@create')->name('timelines.create');
 //固定タイムライン
 Route::get('/fixed',function(){
@@ -52,16 +54,20 @@ Route::get('/fixed',function(){
 });
 //トーク画面
 // Route::get('/talk',function(){
-//     return view('talks.talk');
-// });
-Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
+    //     return view('talks.talk');
+    // });
+    Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
 //トーク一覧
 Route::get('/talk_all',function(){
-    return view('talk_all');
+    return view('talks.talk_all');
 });
 //マイページ
 Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
+//ログアウト
+Route::get('/logout', 'Auth\LoginController@logout');
+
 });//ミドルウェア認証
+Auth::routes();
