@@ -40,7 +40,7 @@ route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 //タイムライン検索
-Route::get('/timeline', 'TimelineController@serch')->name('timelines.serch');
+Route::get('/timeline/serch', 'TimelineController@serch')->name('timelines.serch');
 //固定タイムライン
 Route::get('/fixed',function(){
     return view('fixed_timeline');
