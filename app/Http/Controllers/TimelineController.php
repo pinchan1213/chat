@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TimelineController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request){//タイムラインテーブルにデータを登録
         $timelines = Timeline::orderBy('id', 'desc')->get();//タイムラインテーブルの情報を取得する
 
         return view('timelines.timeline',[
@@ -16,23 +16,13 @@ class TimelineController extends Controller
         ]);
     }
 
-    public function create(Request $request){
-        $timelines = new timeline();
-        $timelines->user_id = Auth::user()->id;
-        $timelines->post = $request->post;
-        $timelines->save();
-        // Auth::user()->posts()->save($timelines);
-
-        return redirect()->route('timelines.index');
-    }
-
-    public function serch(Request $request)
+    public function serch(Request $request)//検索機能処理
     {  
-         $checked_items = \DB::table('timelines')->get();
-         return view('timelines.timeline',compact('checked_items'));
+         $timelines = \DB::table('timelines')->get();
+         return view('timelines.timeline');
 
-        // タイムライン一覧をページネートで取得
-        $timelines = Timeline::paginate(20);
+        // // タイムライン一覧をページネートで取得
+        // $timelines = Timeline::paginate(20);
 
         // 検索フォームで入力された値を取得する
         $search = $request->input('search');

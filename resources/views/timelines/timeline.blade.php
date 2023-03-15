@@ -2,7 +2,7 @@
 @section('content')
 <header class="header float top">
   <div class="timeline_width timeline_wrapper">
-    <form action="timeline.serch" method="post" class="search_form">
+    <form action="timelines.serch" method="get" class="search_form">
       @csrf
       <input type="serch" placeholder="検索" name="search" class="search" value="@if (isset($search)) {{ $search }} @endif">
       <button type="submit" id="search_btn"></button>
@@ -23,19 +23,12 @@
           <button class="dropdown-item" type="button"><a href="mypage">マイページ</a></button>
     </form>
     @foreach($timeline as $timeline)
-    <a href="{{ route('timelines.timeline', ['content' => $content->id]) }}">
+    <a href="{{ route('timelines.timeline', ['content' => $content-content]) }}">
         {{ $timeline->content }}
     </a>
     @endforeach
-    <div>
-    {{ $institutions->appends(request()->input())->links() }}
-</div>
   </div><!--timeline_width-->
 </header>
-
-
-
-
 <section>
 /*cookieを取得*/
   if(array_key_exists('fav_item', $_COOKIE)){

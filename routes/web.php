@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -17,46 +18,39 @@ use App\Http\Controllers\PostController;
 |
 */
 //ログイン前のトップ画面
-Route::get('/',function(){
+Route::get('/top',function(){
     return view('top');
 });
-Route::get('/login',function(){
-    return view('auth.login');
+Route::get('/mypage',function(){
+    return view('mypage');
 });
 
 //ミドルウェア認証
-Route::group(['middleware' => 'auth'], function() {
+// Route::group(['middleware' => 'auth'], function() {
 //リセット画面
 Route::get('/reset',function(){
     return view('reset');
 });
 //ログイン後のアクセスページ
 Route::get('/', 'HomeController@index')->name('home');
-//マイページ編集画面
-Route::get('/edit',function(){
-    return view('edit');
-});
 
 //タイムライン投稿
-route::get('post','PostController@showTimelinePage')->name('posts.create');//投稿処理
-route::post('post','PostController@create');//一覧表示
-//トーク送信
-Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
-Route::post('/talk', 'TalkController@create');
-Route::post('/talk', 'TalkController@index')->name('talks.index');;
+route::get('post','PostController@showTimelinePage')->name('posts.create');
+route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
-Route::get('/timeline', 'TimelineController@serch')->name('timeline.serch');
-Route::post('/timeline', 'TimelineController@create')->name('timelines.create');
+//タイムライン検索
+Route::get('/timeline', 'TimelineController@serch')->name('timelines.serch');
 //固定タイムライン
 Route::get('/fixed',function(){
     return view('fixed_timeline');
 });
+//トーク送信
+Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
+Route::post('/talk', 'TalkController@create');
+Route::post('/talk', 'TalkController@index')->name('talks.index');
 //トーク画面
-// Route::get('/talk',function(){
-    //     return view('talks.talk');
-    // });
-    Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
+Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
 //トーク一覧
 Route::get('/talk_all',function(){
@@ -66,8 +60,16 @@ Route::get('/talk_all',function(){
 Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
+//マイページ編集画面
+Route::get('/edit',function(){
+    return view('edit');
+});
+Route::post('/edit','UsersController@mypageupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');
 
-});//ミドルウェア認証
+// });//ミドルウェア認証終わり
+
+// 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義
 Auth::routes();
+// Auth::logout();

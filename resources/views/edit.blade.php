@@ -3,7 +3,7 @@
 <header class="header_mypage">
   <div class="mypage_text">マイページ</div>
     <div class="mypage_wrapper">
-    <form action="mypage" enctype="multipart/form-data" method="post">
+    <form action="edit" enctype="multipart/form-data" method="post">
       @csrf
       @if ($errors->any())
       <div class="alert alert-danger">

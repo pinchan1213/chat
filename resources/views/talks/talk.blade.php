@@ -4,6 +4,7 @@
 <section>
 <div class="talk">
 	<div class="talk_left">
+    テキストテキスト
 	</div>
   @foreach ($talks as $talk)
 	<div class="talk_right">

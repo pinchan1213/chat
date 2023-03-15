@@ -12,19 +12,20 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
    public function showTimelinePage(){
-    Timeline::latest()->get(); 
     return view('timelines.post');
    }
 
-   public function create(Request $request){
+   public function create(Request $request){//投稿処理
+
     $validator = $request->validate([
-        'post'=>['required','string','max250'],
+        'post'=>['required','string','max:250'],
     ]);
-    Timeline::create([
-        'user_id'=>Auth::user()->id,
-        'timeline_id'=>Auth::user()->id,
-        'post'=>$request->post,
-    ]);
-    return redirect()->route('timelines.timeline');
+
+    $timelines = new timeline();
+    $timelines->user_id = Auth::user()->id;
+    $timelines->post = $request->post;
+    $timelines->save();
+
+    return redirect()->route('timelines.index');
    }
 }

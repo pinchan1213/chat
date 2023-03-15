@@ -12,21 +12,11 @@
           <button class="dropdown-item" type="button"><a href="talk_all">トーク</a></button>
           <button class="dropdown-item" type="button"><a href="mypage">マイページ</a></button>
           <button  id="logout" class="dropdown-item" type="button"><a href="/">ログアウト</a></button>
-          <form id="logout-form" action="logout" method="POST" style="display: none;">
-          @csrf
-        </form>
       @else
       <a href="top">topへ戻る</a>
       @endif
+      </div>
     </form>
   </div><!--timeline_width-->
 </header>
-@if(Auth::check())
-  <script>
-    document.getElementById('logout').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('logout-form').submit();
-    });
-  </script>
-@endif
 @endsection

@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\mypageController;
 
 class UsersController extends Controller
 {
-    public function mypageupdate(Request $request){
-        $validator = validator::make($request->all(),[
+    public function mypageupdate(Request $request){//プロフィール編集処理
+        $validator =  validator::make($request->all(),[
             'name' => 'required|min:2|max:12',
-            'email' =>['required', 'min:5', 'max:40', 'email', Rule::unique('users')->ignore(Auth::id())],//ログインしているユーザー以外をバリデーションチェック
+            'email' =>['required', 'min:5', 'max:40', 'email',
+             Rule::unique('users')->ignore(Auth::id())],//ログインしているユーザー以外をバリデーションチェック
             'password'=>'min:4|max:20|confirmed|alpha_num',
             'images' =>'image',
         ]);
