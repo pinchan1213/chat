@@ -7,13 +7,15 @@
     テキストテキスト
 	</div>
   @foreach ($talks as $talk)
+  <div class="talk_fixed">
+  <li>{{$talk->created_at}}</li>
 	<div class="talk_right">
-  <ul class="ul_right">
-    <li>{{$talk->created_at}}</li>
+    <ul class="ul_right">
 		<li class="talk_text">{{ $talk->content }}</li>
   </ul>
 </div>
-  @endforeach
+</div><!--talk_fixed-->
+@endforeach
 </div>
 </section>
 

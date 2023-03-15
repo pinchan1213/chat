@@ -2,9 +2,9 @@
 @section('content')
 <header class="header float top">
   <div class="timeline_width timeline_wrapper">
-    <form action="timelines.serch" method="get" class="search_form">
+    <form action="timelines.timeline" method="get" class="search_form">
       @csrf
-      <input type="serch" placeholder="検索" name="search" class="search" value="@if (isset($search)) {{ $search }} @endif">
+      <input type="serch" placeholder="検索" name="keyward" class="search" value="{{ $keyword }}">
       <button type="submit" id="search_btn"></button>
       <div class="dropdown">
         <button class="btnB  dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</button>
@@ -28,7 +28,10 @@
           <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img fix" data-id="{{ $timeline->id }}>
           <h3 class="user p">名前</h3>
           <div class="pin_img" data-pageid="">
-            <img src="{{ asset('images/pin_white.png') }}" alt="" id="pin_img" class="fix" data-id="{{ $timeline->id }}" >
+            <button class="fix" data-id="{{ $timeline->id }}">
+              <img src="{{ asset('images/pin_white.png') }}" alt="">
+            </button>
+            <button class="fix hidden change" data-id="{{ $timeline->id }}" ><img src="{{ asset('images/pin_red.png') }}" alt=""></button>
           </div>
         </div><!--timeline_flex-->
         <div class="composition p">{{ $timeline->post }}</div>
@@ -38,5 +41,14 @@
       </div>
     </li>
   </ul>
+  //* 保存されているレコードを一覧表示*//
+  @forelse ($posts as $post)
+    <tr>
+      <td><a href="{{ route('posts.show' , $post) }}">{{ $post->post }}</td></a>
+      <td>{{ $post->post }}</td>
+    </tr>
+  @empty
+    <td>No posts!!</td>
+  @endforelse
   </section>
 @endsection
