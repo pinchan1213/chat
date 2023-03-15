@@ -17,23 +17,18 @@
           <button class="dropdown-item" type="button"><a href="talk_all">トーク</a></button>
           <button class="dropdown-item" type="button"><a href="mypage">マイページ</a></button>
     </form>
-    @foreach($timelines as $timeline)
-    <a href="{{ route('timelines.index', ['post' => $timeline->post]) }}">
-        {{ $timeline->post }}
-    </a>
-    @endforeach
   </div><!--timeline_width-->
 </header>
 <section>
   <ul class="timeline_wrapper">
     <li>
       <div class="timeline_content float">
-      @foreach($timelines as $timeline)
-        <div class="timeline_flex float">
-          <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img">
+        @foreach($timelines as $timeline)
+        <div class="timeline_flex float" ">
+          <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img fix" data-id="{{ $timeline->id }}>
           <h3 class="user p">名前</h3>
           <div class="pin_img" data-pageid="">
-          <img src="{{ asset('images/pin_white.png') }}" alt="" id="pin_img">
+            <img src="{{ asset('images/pin_white.png') }}" alt="" id="pin_img" class="fix" data-id="{{ $timeline->id }}" >
           </div>
         </div><!--timeline_flex-->
         <div class="composition p">{{ $timeline->post }}</div>
