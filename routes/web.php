@@ -20,11 +20,11 @@ use App\Http\Controllers\PostController;
 Route::get('/',function(){
     return view('top');
 });
-Auth::routes();
+// Auth::routes();
 
 
 
-Route::group(['middleware' => 'auth'], function() {
+// Route::group(['middleware' => 'auth'], function() {
 //リセット画面
 Route::get('/reset',function(){
     return view('reset');
@@ -64,4 +64,4 @@ Route::get('/talk_all',function(){
 Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
-});//ミドルウェア認証
+// });//ミドルウェア認証
