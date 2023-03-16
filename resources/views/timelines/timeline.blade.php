@@ -25,15 +25,15 @@
       <div class="timeline_content float">
         @foreach($timelines as $timeline)
         <div class="timeline_flex float" ">
-        <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix" data-id="{{ $timeline->id }}">
-          <h3 class="user p" data-id="fix_user">{{ Auth::user()->name }}</h3>
+        <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix " data-id="{{ $timeline->id }}">
+          <h3 class="user p fixUser">{{ Auth::user()->name }}</h3>
           <div class="pin_img">
-            <button data-id="{{ $timeline->id }}">
+            <button class="js_fix" data-timeline_id="{{ $timeline->id }}">
             <i class="fa-solid fix fa-thumbtack"></i>
             </button>
           </div>
         </div><!--timeline_flex-->
-        <div class="composition p">{{ $timeline->post }}</div>
+        <div class="composition p ">{{ $timeline->post }}</div>
         <div class="line gap"></div>
         <img src="{{ asset('images/good.png') }}" alt="" class="good float">
         @endforeach

@@ -43,10 +43,9 @@ Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 //タイムライン検索
 Route::get('/timeline/serch', [TimelineController::class, 'serch'])
     ->name('timeline.serch');
-//固定タイムライン
-Route::get('/fixed',function(){
-    return view('fixed_timeline');
-});
+//固定タイムライン表示
+Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
+Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 //トーク送信
 Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
 Route::post('/talk', 'TalkController@create');

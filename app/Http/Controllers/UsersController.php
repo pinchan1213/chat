@@ -16,17 +16,14 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required|min:2|max:12',
             'email' =>'required|min:5|max:40|email',
-            // 'password'=>'min:4|max:20|confirmed|alpha_num',
+            'password'=>'max:20|confirmed|alpha_num',
+            'newpassword' =>'max:20|alpha_num',
             'images' =>'image',
         ]);
 
         $user = User::find(Auth::user()->id);
 
-        //画像登録
-        // if(isset($request->file('iconimage'))){
-
-        // }
-
+        //画像登録処理
         if($request->has('iconimage')){
             $image = $request->file('iconimage')->store('public/images');
         }else {

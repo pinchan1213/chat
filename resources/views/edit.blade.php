@@ -19,12 +19,8 @@
     <dd><input type="text" name="name" value="{{ Auth::user()->name }}"></dd>
     <dt>メールアドレス</dt>
     <dd><input type="text" name="email" value="{{ Auth::user()->email }}"></dd>
-    <dt>パスワード</dt>
-    <dd><input type="password" name="password"></dd>
-    <dt>パスワード編集</dt>
-    <dd><input type="password" name="newpassword"></dd>
-
-    <dt></dt>
+    <dd><a href="reset">パスワードの再設定</a>
+    </dd>
     <dd class="mypage_img"><input type="file" name="iconimage">
     <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt=""></dd>
   </dl>
