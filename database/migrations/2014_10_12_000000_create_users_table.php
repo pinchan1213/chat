@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->collation('utf8_bin');
             $table->string('newpassword')->collation('utf8_bin');
-            // $table->string('images');
+            $table->string('images');
             // $table->tinyInteger('delflag');
             // $table->datetime('created');
             // $table->datetime('modified');

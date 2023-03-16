@@ -3,21 +3,25 @@
 return [
 
   'max' => [
-    'string' => ':attributeは:max文字以内で入力してください。',
+  'string' => ':attributeは:max文字以内で入力してください。',
 ],
 'required' => ':attributeは必ず入力してください。',
 'attributes' => [
+    'email' => 'メールアドレス',
+    'password' => 'パスワード',
+    'token' => 'トークン',
     'post' => '投稿',
 ],
-'confirmed'            => ':attribute が確認欄と一致していません。',
-'email'                => ':attribute には有効な形式のメールアドレスを入力してください。',
-'min'                  => [
+
+'confirmed'=> ':attribute が確認欄と一致していません。',
+'email'=> ':attribute には有効な形式のメールアドレスを入力してください。',
+'min' => [
     // 略
     'string'  => ':attribute は:min文字以上で入力してください。',
     // 略
 ],
-'string'               => ':attribute には文字を入力してください。',
-'unique'               => '入力いただいた :attribute はすでに使用されています。',
+'string'=> ':attribute には文字を入力してください。',
+'unique'=> '入力いただいた :attribute はすでに使用されています。',
 
     /*
     |--------------------------------------------------------------------------

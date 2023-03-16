@@ -10,8 +10,13 @@ img{
   margin: 0;
   padding: 0;
 }
+button{
+  list-style: none;
+  border: none;
+  background-color: #fff;
+}
 
-ligoo
+li{
   list-style: none;
 }
 
@@ -205,9 +210,20 @@ input[type="text"]{
   width: 30px;
 }
 
-#pin_img{
+.pin_img{
+  width: 40px;
+  height: auto;
+  margin-left:auto;
+  background-image: url(/images/pin_white.png);
+}
+.hidden {
+  display: none;
+}
+
+.red{
   width: 40px;
   margin-left:auto;
+  background-image: url(../images/pin_red.png);
 }
 
 .gap{
@@ -273,7 +289,7 @@ input{
   height: 70px;
   border-radius: 50px;
   margin: 10px;
-  padding: 10px;
+  padding: 10px;  */
 }
 
 .profile{
@@ -354,63 +370,32 @@ section{
 }
 
 /* 全体の枠 */
+
 .talk {
 	padding:1em;
-	overflow:auto;
+  max-width: 100%;
 }
 
-/* 左のトークボックス */
-.talk .talk_left{
+.talk_fixed{
+  display: block;
   width: 50%;
+
 }
-.talk .talk_left:before {
-	content:'';
-	display:inline-block;
-	width:50px;
-	height:50px;
-	vertical-align:top;
-	border-radius:50%;
-	background-size:cover;
-	background-image:url(../images/human.png);
+.talk_right {
+  margin: 2em auto;
+  padding:1em;/*内側余白*/
+  border-radius:30px;/*丸みを調整*/
+  background-color:#f7e9e8;
+}
+.talk_text{
+  width: 200px;
+  margin: 0; 
+  padding: 0;
+
 }
 
-
-.talk .talk_left p:before {  /* 左ふきだしの左三角を描画 */
-	content: '';
-	position:absolute;
-	top:8px;
-	left:-20px;
-	border: 12px solid transparent;
-	border-right:12px solid white;
-}
-
-.talk .talk_left p { /* 左ふきだしの本体 */
-	display:inline-block;
-	position:relative;
-	background-color:white;
-	border-radius:10px;
-	padding:10px;
-	margin:0 0 0 10px;
-}
-
-/* 右のトークボックス */
-.talk .talk_right::before { 
-	content:'';
-	display:inline-block;
-	width:50px;
-	height:50px;
-	vertical-align:top;
-	border-radius:50%;
-	background-size:cover;
-  float: right;
-	background-image:url(../images/human.png);  /* ←アイコンはここを変更 */
-}
-.talk .talk_right {
-	float:right; /* 右のふきだしは全体的に右寄せ */
-	margin-top:1em;
-  width: 50%;
-}
-.talk .talk_right p:after { /* 右ふきだしの右三角を描画 */
+/*
+.talk .talk_right p:after {
 	content: '';
 	position:absolute;
 	top:8px;
@@ -418,7 +403,9 @@ section{
 	border: 12px solid transparent;
 	border-left:12px solid #85e249;
 }
-.talk .talk_right p { /* 右ふきだしの本体 */
+*/
+/*
+.talk .talk_right .talk_text { 
 	display:inline-block;
 	position:relative;
 	background-color:#85e249;
@@ -426,6 +413,7 @@ section{
 	padding:10px;
 	margin:0 10px 0 0;
 }
+*/
 
 
 /*              talk_all                  */
@@ -466,4 +454,29 @@ section{
 
 .mypage_wrapper{
   height: 600px;
+}
+
+
+/*                お気に入り機能実装                 */
+.btn-good{
+  display: inline-block;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.btn-good:hover{
+  color: #f44336;
+}
+.active{
+  color: #f44336;
+}
+.btn-good .active{
+  color: #f44336;
+}
+
+.font-color-red {
+  color: #AF011C;
+}
+
+.fa-solid{
+  font-size: 45px;
 }

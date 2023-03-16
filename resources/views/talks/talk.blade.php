@@ -4,13 +4,18 @@
 <section>
 <div class="talk">
 	<div class="talk_left">
-		<p></p>
+    テキストテキスト
 	</div>
-	<div class="talk_right">
   @foreach ($talks as $talk)
-		<p>{{ $talk->content }}</p>
-  @endforeach
-	</div>
+  <div class="talk_fixed">
+  <li>{{$talk->created_at}}</li>
+	<div class="talk_right">
+    <ul class="ul_right">
+		<li class="talk_text">{{ $talk->content }}</li>
+  </ul>
+</div>
+</div><!--talk_fixed-->
+@endforeach
 </div>
 </section>
 

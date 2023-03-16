@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Timeline;
 use Illuminate\Support\Facades\Auth;
+use app\Keyword;
 
 class TimelineController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request){//タイムラインテーブルにデータを登録
         $timelines = Timeline::orderBy('id', 'desc')->get();//タイムラインテーブルの情報を取得する
 
         return view('timelines.timeline',[
@@ -16,14 +17,18 @@ class TimelineController extends Controller
         ]);
     }
 
-    public function create(Request $request){
-        $timelines = new timeline();
+    public function serch(Request $request)//検索機能処理
+    {  
+        $keyword = $request->input('keyword');
 
-        $timelines->user_id = Auth::user()->id;
-        $timelines->post = $request->post;
-        $timelines->save();
-        // Auth::user()->posts()->save($timelines);
+        $query = Timeline::query();
 
-        return redirect()->route('timelines.index');
+        if(!empty($keyword)) {
+        $query->where('post', 'LIKE', "%{$keyword}%");//LIKE演算子
+        }
+
+        $posts = $query->get();
+
+        return view('serch', compact('posts', 'keyword'));
     }
 }
