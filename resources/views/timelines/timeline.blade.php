@@ -4,7 +4,7 @@
   <div class="timeline_width timeline_wrapper">
     <form action="timelines.timeline" method="get" class="search_form">
       @csrf
-      <input type="serch" placeholder="検索" name="keyward" class="search" value="{{ $keyword }}">
+      <input type="serch" placeholder="検索" name="keyward" class="search">
       <button type="submit" id="search_btn"></button>
       <div class="dropdown">
         <button class="btnB  dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</button>
@@ -28,8 +28,8 @@
           <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img fix" data-id="{{ $timeline->id }}>
           <h3 class="user p">名前</h3>
           <div class="pin_img" data-pageid="">
-            <button class="fix" data-id="{{ $timeline->id }}">
-              <img src="{{ asset('images/pin_white.png') }}" alt="">
+            <button data-id="{{ $timeline->id }}">
+            <i class="fa-solid fix fa-thumbtack"></i>
             </button>
             <button class="fix hidden change" data-id="{{ $timeline->id }}" ><img src="{{ asset('images/pin_red.png') }}" alt=""></button>
           </div>
@@ -41,7 +41,7 @@
       </div>
     </li>
   </ul>
-  //* 保存されているレコードを一覧表示*//
+ {{-- //* 保存されているレコードを一覧表示*//
   @forelse ($posts as $post)
     <tr>
       <td><a href="{{ route('posts.show' , $post) }}">{{ $post->post }}</td></a>
@@ -49,6 +49,6 @@
     </tr>
   @empty
     <td>No posts!!</td>
-  @endforelse
+  @endforelse--}}
   </section>
 @endsection

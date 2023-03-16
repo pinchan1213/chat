@@ -1,4 +1,4 @@
 
 $(".fix").on("click", function () {
-  $(this).toggleClass("change");
+  $(this).toggleClass("font-color-red");
 });

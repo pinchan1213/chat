@@ -5,29 +5,40 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\mypageController;
+use App\Http\Controllers\validator;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
-    public function mypageupdate(Request $request){//プロフィール編集処理
-        $validator =  validator::make($request->all(),[
+    public function profileupdate(Request $request){//プロフィール編集処理
+
+        $request->validate([
             'name' => 'required|min:2|max:12',
-            'email' =>['required', 'min:5', 'max:40', 'email',
-             Rule::unique('users')->ignore(Auth::id())],//ログインしているユーザー以外をバリデーションチェック
-            'password'=>'min:4|max:20|confirmed|alpha_num',
+            'email' =>'required|min:5|max:40|email',
+            // 'password'=>'min:4|max:20|confirmed|alpha_num',
             'images' =>'image',
         ]);
 
-        $user = Auth::user();
-        dd($user);
+        $user = User::find(Auth::user()->id);
+
         //画像登録
-        $image = $request->file('iconimage')->store('public/images');
-        $validator->validate();
-        $user->update([
-            'name' => $request->input('username'),
-            'email' => $request->input('mail'),
-            'password' => bcrypt($request->input('newpassword')),
-            'images' => basename($image),
-        ]);
+        // if(isset($request->file('iconimage'))){
+
+        // }
+
+        if($request->has('iconimage')){
+            $image = $request->file('iconimage')->store('public/images');
+        }else {
+            $image = $user->images;
+        }
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('newpassword'));
+        $user->images = basename($image);
+        $user->save();
+
         return redirect('/mypage');
     }
 }

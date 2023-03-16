@@ -472,3 +472,11 @@ section{
 .btn-good .active{
   color: #f44336;
 }
+
+.font-color-red {
+  color: #AF011C;
+}
+
+.fa-solid{
+  font-size: 45px;
+}

@@ -65,7 +65,7 @@ Route::get('/mypage',function(){
 Route::get('/edit',function(){
     return view('edit');
 });
-Route::post('/edit','UsersController@mypageupdate')->name('edit');
+Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');
 
