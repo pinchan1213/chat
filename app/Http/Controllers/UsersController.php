@@ -18,6 +18,7 @@ class UsersController extends Controller
         ]);
 
         $user = Auth::user();
+        dd($user);
         //画像登録
         $image = $request->file('iconimage')->store('public/images');
         $validator->validate();
