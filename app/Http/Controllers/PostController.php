@@ -20,9 +20,10 @@ class PostController extends Controller
     $validator = $request->validate([
         'post'=>['required','string','max:250'],
     ]);
-
+    //  dd($timeline);
     $timelines = new timeline();
     $timelines->user_id = Auth::user()->id;
+    $timelines->name = $request->name;
     $timelines->post = $request->post;
     $timelines->save();
 

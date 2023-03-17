@@ -7,7 +7,7 @@
   <div class="timeline_content float top">
     <div class="timeline_flex float">
       <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img">
-      <h3 class="user p">名前</h3>
+      <h3 class="user p">{{ Auth::user()->name }}</h3>
     </div>
     <div class="timeline_wrapper">
     </div><!--timeline_wrapper-->

@@ -1,8 +1,8 @@
 //ajax処理
 $(".fix").on("click", function () {
   let $fixed = $('js_fix');//固定ボタン
-  let $fixUser = $('fixUser');//いいしたユーザー
-  let $fixpostid;//コントローラーに渡すパラメーター
+  let $fixUser = $('.timeline_content').data('user-id');//いいしたユーザー
+  let $fixpostid = $('.fa-thumbtack').data('id')//コントローラーに渡すパラメーター
   // let $this = $(this);
   // $fixpostid = $this.data('timeline_id');
 
@@ -11,19 +11,22 @@ $(".fix").on("click", function () {
         //CSREトークンの設定
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
       },
-      url: "/fixed",//Routeの記述
+      url: "timeline/fixed",//Routeの記述
       type: "post",//受け取りの記述
-      processData: false,
-      dataType: "json",
+      // processData: false,
+      // dataType: "json",
       data: {
         'id' : $fixUser,//コントローラーに渡すパラメーター
         'timeline_id': $fixpostid,//TimelineIDを渡す
       },
-    })
-    //ajaxリクエストが成功した場合
-    .done(function(data){
-      $(this).toggleClass("font-color-red");//アイコンが赤くなる
-    })
-    //ajaxリクエストが失敗した場合
-    console.log('登録できませんでした。');
+    }).done(function(data){ //ajaxリクエストが成功した場合
+      console.log(data);
+      // $(this).toggleClass("font-color-red");//アイコンが赤くなる
+    }).fail(function (data, xhr, err) {
+      //ここの処理はエラーが出た時にエラー内容をわかるようにしておく。
+      //とりあえず下記のように記述しておけばエラー内容が詳しくわかります。笑
+                  console.log('エラー');
+                  console.log(err);
+                  console.log(xhr);
+              });
   });

@@ -10,7 +10,7 @@
               @endforeach
             </div>
           @endif
-        <form action="{{ route('register') }}" method="post">
+        <form action="{{ route('password.email') }}" method="post">
             @csrf
             <label class="text ">ユーザーネーム</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}">
@@ -20,7 +20,7 @@
             <input type="text" name="password" id="password">
             <label class="text">確認用パスワード</label>
             <input type="text" name="password_confirmation" id="password-confirm">
-            <input type="submit" value="送信する" class="btn" >
+            <input type="submit" value="再設定リンクを送信する" class="btn" >
           </form>
       </div><!--form_flame-->
     </div><!--content-->

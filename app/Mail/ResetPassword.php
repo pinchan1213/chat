@@ -3,25 +3,24 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CommentPosted extends Mailable
+class ResetPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
-    public $comment;
+    private $token;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, Comment $comment)
+    public function __construct($token)
     {
-        $this->user = $user;
-        $this->comment = $comment;
+        $this->token = $token;
     }
 
     /**
@@ -32,7 +31,7 @@ class CommentPosted extends Mailable
     public function build()
     {
         return $this
-            ->subject('コメントありがとうございます')
-            ->view('emails.comments.posted');
+        ->subject('パスワード再設定')
+        ->view('mail.password-reset');
     }
 }

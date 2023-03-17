@@ -22,16 +22,20 @@ Route::get('/top',function(){
     return view('top');
 });
 
-Route::get('/mypage',function(){
-    return view('mypage');
-});
-
-//ミドルウェア認証
-// Route::group(['middleware' => 'auth'], function() {
 //リセット画面
 Route::get('/reset',function(){
     return view('reset');
 });
+Route::get('/reset/mail',function(){
+    return view('mail');
+});
+
+// Route::get('/mypage',function(){
+//     return view('mypage');
+// });
+
+//ミドルウェア認証
+// Route::group(['middleware' => 'auth'], function() {
 //ログイン後のアクセスページ
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -40,9 +44,6 @@ route::get('post','PostController@showTimelinePage')->name('posts.create');
 route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
-//タイムライン検索
-Route::get('/timeline/serch', [TimelineController::class, 'serch'])
-    ->name('timeline.serch');
 //固定タイムライン表示
 Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
@@ -74,4 +75,3 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 // 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義
 Auth::routes();
-// Auth::logout();

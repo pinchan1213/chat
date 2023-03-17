@@ -17,7 +17,7 @@ class CreateFixedTable extends Migration
             $table->bigIncrements('id');
             $table->biginteger('user_id')->unsigned();//マイナスを表示させない
             $table->string('name');
-            $table->integer('timeline_id');
+            $table->integer('timeline_id')->nullable()->change();
             $table->dateTime('created');
             $table->timestamps();
 
