@@ -20,8 +20,8 @@
 <section>
   <ul class="timeline_wrapper">
     <li>
+      @foreach($timelines as $timeline)
       <div class="timeline_content float" data-user-id="{{ Auth::user()->id }}">
-        @foreach($timelines as $timeline)
         <div class="timeline_flex float" ">
         <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
           <h3 class="user p fixUser">{{ Auth::user()->name }}</h3>

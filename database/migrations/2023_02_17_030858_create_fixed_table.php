@@ -16,13 +16,17 @@ class CreateFixedTable extends Migration
         Schema::create('fixed', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->biginteger('user_id')->unsigned();//マイナスを表示させない
-            $table->string('name');
+            $table->string('name')->nullable()->change();
             $table->integer('timeline_id')->nullable()->change();
             $table->dateTime('created');
             $table->timestamps();
 
-             // 外部キーを設定する
-             $table->foreign('user_id')->references('id')->on('users');
+            
+            // 外部キーを設定する
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->constrained();//userテーブルのidカラムを参照するメソッド
+            $table->onDelete('cascade');//削除時のオプション
+            $table->foreginId('timeline_id')->constrained()->onDelete('cascade');
         });
     }
 

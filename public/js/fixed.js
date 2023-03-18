@@ -20,8 +20,8 @@ $(".fix").on("click", function () {
         'timeline_id': $fixpostid,//TimelineIDを渡す
       },
     }).done(function(data){ //ajaxリクエストが成功した場合
-      console.log(data);
-      // $(this).toggleClass("font-color-red");//アイコンが赤くなる
+      // console.log(data);
+      $(this).toggleClass("font-color-red");//アイコンが赤くなる
     }).fail(function (data, xhr, err) {
       //ここの処理はエラーが出た時にエラー内容をわかるようにしておく。
       //とりあえず下記のように記述しておけばエラー内容が詳しくわかります。笑

@@ -17,7 +17,7 @@ class CreateTimelinesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->bigInteger('timeline_id')->constrained()->nullable()->change();
-            $table->string('name');
+            $table->string('name')->nullable()->change();
             $table->text('post');
             $table->tinyInteger('timeline_fixed')->nullable()->change();
             $table->timestamps();

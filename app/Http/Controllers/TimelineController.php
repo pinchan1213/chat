@@ -23,20 +23,18 @@ class TimelineController extends Controller
     public function fixed(Request $request){
     return json_decode('aaa');
 
-    //  $id = Auth::user()->id;
-    //  $timeline_id = $request->timeline_id;
-    //  $timeline = timeline::findOrFail($timeline_id);//一致する画面が見つからなかった場合エラー
+     $user_id = Auth::user()->id;
+     $timeline_id = $request->timeline_id;
+     $fixed = Fixed::where('user_id',$user_id)->where('timeline_id',$timeline_id)->first();
 
-     //すでに固定しているなら
-    //  if($fixed){
-    //     //fixedテーブルのレコードを削除
-    //     $fixed = Fixed::where('timeline_id',$timeline_id)->where('id',$id)->delete();}
-    //     else{
-    //      //まだ固定していないならfixedテーブルに新しいレコードを作成する
-    //      $fixed = new Fixed;
-    //      $fixed->timeline_id = $request->timeline_id.
-    //      $fixed->id = Auth::user()->id;
-    //      $fixed ->save();
-    //     }
+     if(!$fixed){//投稿にいいねしていなかったら
+        $fixed = new Fixed;//インスタンスの作成
+        $fixed->timeline_id = $timeline_id;
+        $fixed->user_id = $user_id;
+        $fixed->save();
+     }else{//いいねしていたら
+        Fixed::where('timeline_id',$timeline_id)->where('user_id',$user_id)->delet();
      }
+     return response($fixed);
+  }
 }
