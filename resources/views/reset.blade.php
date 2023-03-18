@@ -3,7 +3,7 @@
   <div class="back">
     <div class="content">
       <div class="form_flame">
-        <form action="" method="post">
+        <form action="Route{{ mail.reset }}" method="post">
             @csrf
             <label class="text">メールアドレス</label>
             <input type="text" name="email" id="email">
