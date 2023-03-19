@@ -13,5 +13,6 @@ class Talk extends Model
         'content',
         'images',
         'partner_id',
+        'created',
     ];
 }
