@@ -1,7 +1,9 @@
 @extends('template')
 @section('content')
+<div class="bg_pattern Crown"></div>
+<div class="background"></div>
 <header class="header_mypage">
-  <div class="mypage_text">マイページ</div>
+<div class="box-015">マイページ</div>
     <div class="mypage_wrapper">
     <form action="{{ route('edit') }}" enctype="multipart/form-data" method="post">
       @csrf
@@ -24,7 +26,7 @@
     <dd class="mypage_img"><input type="file" name="iconimage">
     <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt=""></dd>
   </dl>
-  <input type="submit" name="profileupdate" value="更新">
+  <input type="submit" name="profileupdate" class="_a update" value="更新">
 </form>
 </header>
 @endsection
