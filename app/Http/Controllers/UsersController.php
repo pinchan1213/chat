@@ -36,6 +36,6 @@ class UsersController extends Controller
         $user->images = basename($image);
         $user->save();
 
-        return redirect('/mypage');
+        return redirect('/');
     }
 }

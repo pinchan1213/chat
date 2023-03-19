@@ -63,8 +63,8 @@ Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
 //パスワード再設定
-Route::get('/mail','TestMailController@index')->name('mail.reset');
-Route::post('/mail','TestMailController@index');
+// Route::get('/mail','TestMailController@index')->name('mail.reset');
+// Route::post('/mail','TestMailController@index');
 
 //マイページ編集画面
 Route::get('/edit',function(){
