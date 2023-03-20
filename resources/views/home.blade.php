@@ -20,6 +20,7 @@
         </div>
       </form>
     </div><!--timeline_width-->
+    <div class="box15">
     <div class="box-015">マイページ</div>
       <div class="mypage_wrapper">
         <div class="mypage_img">
@@ -28,6 +29,7 @@
         <div class="mypage_name float top">{{ optional(Auth::user())->name }}</div>
         <div class="mypage_name float ">{{ optional(Auth::user())->email }}</div>
         <div class="_a"><a href="edit">変更する</a></div>
+    </div><!---mypagecontent-->
       </div><!-- mypage_wrapper  -->
     </header>
 

@@ -28,7 +28,7 @@
   <ul class="timeline_wrapper">
     <li>
       <div class="timeline_content">
-      @foreach($displays as $display)
+      @foreach($displays ?? '' as $display)
       <div class="timeline float" data-user-id="{{ Auth::user()->id }}">
         <div class="timeline_flex float" ">
         <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">

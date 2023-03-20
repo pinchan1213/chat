@@ -45,3 +45,5 @@ class TimelineController extends Controller
     return view('timelines.fixed_timeline',$data);
   }
 }
+
+
