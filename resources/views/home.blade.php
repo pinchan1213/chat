@@ -25,12 +25,11 @@
   </div><!--timeline_width-->
   <div class="box-015">マイページ</div>
     <div class="mypage_wrapper">
-      <div class="mypage_img ">
+      <div class="mypage_img">
       <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="">
       </div>
-      <div class="mypage_name float top">{{ Auth::user()->name }}</div>
-      <div class="mypage_name float top">{{ Auth::user()->email }}</div>
-    <div class="line float"></div>
+      <div class="mypage_name float top">{{ optional(Auth::user())->name }}</div>
+      <div class="mypage_name float top">{{ optional(Auth::user())->email }}</div>
       <div class="_a"><a href="edit">変更する</a></div>
     </div>
 </header>

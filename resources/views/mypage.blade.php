@@ -3,7 +3,7 @@
 <header class="header_mypage">
   <div class="mypage_text">マイページ</div>
     <div class="mypage_wrapper">
-      <div class="mypage_img ">
+      <div class="mypage_img iconimage">
       <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="">
       </div>
       <div class="mypage_name float top">{{ Auth::user()->name }}</div>

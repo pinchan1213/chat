@@ -1,9 +1,10 @@
 @charset 'utf-8';
 html, body {
   height: 100%;
-  overflow: hidden;
   margin: 0;
   padding: 0;
+  letter-spacing: .025em;
+  line-height: 1.8;
 }
 /*=============
 .bg_pattern
@@ -98,12 +99,11 @@ html, body {
   background-position: -100% 0;
 }
 
-
-body {
-  font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  letter-spacing: .025em;
-  line-height: 1.8;
+.Lines_v4 {
+  background-size: 40px 40px;
+  background-image:  repeating-linear-gradient(to right, #ffc107, #ffc107 2px, #ffe9a7 2px, #ffe9a7);
 }
+
 * {
   box-sizing: border-box;
 }
@@ -175,9 +175,6 @@ li{
   list-style: none;
 }
 
-body{
-  margin: 0 0 0 0;
-}
 
 a{
   text-decoration: none;
@@ -342,6 +339,13 @@ input[type="text"]{
   overflow: hidden;
 }
 
+.timeline_content{
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
 .timeline_wrapper{
   margin: 0 auto;
   max-width: 1200px;
@@ -359,6 +363,8 @@ input[type="text"]{
 
 .line{
   border: solid 1px #808080;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .good{
@@ -548,26 +554,6 @@ section{
 
 }
 
-/*
-.talk .talk_right p:after {
-	content: '';
-	position:absolute;
-	top:8px;
-	right:-20px;
-	border: 12px solid transparent;
-	border-left:12px solid #85e249;
-}
-*/
-/*
-.talk .talk_right .talk_text { 
-	display:inline-block;
-	position:relative;
-	background-color:#85e249;
-	border-radius:10px;
-	padding:10px;
-	margin:0 10px 0 0;
-}
-*/
 
 
 /*              talk_all                  */
@@ -579,11 +565,6 @@ section{
 
 
 /*          header.mypage                */
-.header_mypage{
-  height: 100px;
-  background-color: #333;
-}
-
 .mypage_text{
   text-align: center;
   color: #f6adc6;
@@ -597,7 +578,6 @@ section{
   margin: 0 auto;
   width: 200px;
   height: auto;
-  margin-top: 60px;
 }
 
 .mypage_name{
@@ -608,6 +588,16 @@ section{
 
 .mypage_wrapper{
   height: 600px;
+}
+
+/*          プロフィール編集画面（edit）                    */
+.UserProfile{
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.ddEmail{
+  font-size: 25px;
 }
 
 

@@ -1,5 +1,6 @@
 @extends('template')
 @section('content')
+<div class="bg_pattern Lines_v4"></div>
 <header class="header float top">
   <div class="timeline_width timeline_wrapper">
     <form action="timelines.timeline" method="post" class="search_form">
@@ -12,7 +13,7 @@
           <button class="dropdown-item" type="button"><a href="timeline">タイムライン</a></button>
           <button class="dropdown-item" type="button"><a href="fixed">固定タイムライン</a></button>
           <button class="dropdown-item" type="button"><a href="talk_all">トーク一覧</a></button>
-          <button class="dropdown-item" type="button"><a href="talk_all">トーク</a></button>
+          <button class="dropdown-item" type="button"><a href="talk">トーク</a></button>
           <button class="dropdown-item" type="button"><a href="/">マイページ</a></button>
           <button  id="logout" class="dropdown-item" type="button"><a href="/">ログアウト</a></button>
       @else
@@ -25,8 +26,9 @@
 <section>
   <ul class="timeline_wrapper">
     <li>
+      <div class="timeline_content">
       @foreach($timelines as $timeline)
-      <div class="timeline_content float" data-user-id="{{ Auth::user()->id }}">
+      <div class="t float" data-user-id="{{ Auth::user()->id }}">
         <div class="timeline_flex float" ">
         <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
           <h3 class="user p fixUser">{{ Auth::user()->name }}</h3>
@@ -41,6 +43,7 @@
         <img src="{{ asset('images/good.png') }}" alt="" class="good float">
         @endforeach
       </div>
+      </div><!--timeline_content-->
     </li>
   </ul>
   </section>

@@ -2,7 +2,6 @@
 @section('content')
 <div class="bg_pattern Crown"></div>
 <div class="background"></div>
-<header class="header_mypage">
 <div class="box-015">マイページ</div>
     <div class="mypage_wrapper">
     <form action="{{ route('edit') }}" enctype="multipart/form-data" method="post">

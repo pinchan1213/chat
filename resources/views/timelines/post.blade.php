@@ -24,7 +24,8 @@
   </div><!--timeline_width-->
 </header>
 <main>
-  <div class="timeline_content float top">
+  <div class="timeline_content">
+  <div class="float top box-014">
     <div class="timeline_flex float">
       <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img">
       <h3 class="user p">{{ Auth::user()->name }}</h3>
@@ -36,5 +37,6 @@
       <input type="text" class="form-control" name="post" id="title" value="{{ old('post') }}" />
       <button type="submit" class="move_btn">投稿する</button>
     </form>
+    </div><!--timeline_conrent-->
 </main>
 @endsection
