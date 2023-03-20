@@ -5,9 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class fixed extends Model
-{ 
+{
+    protected $table = 'fixed';
+
     public function user(){
-          //userテーブルとのリレーションを定義するuserメソッド
+    //userテーブルとのリレーションを定義するuserメソッド
       return $this->belongsTo(User::class);
     }
 
@@ -16,6 +18,6 @@ class fixed extends Model
     }
 
     public function fixed(){
-        return $this->hasMany('App¥Fixed');
+        return $this->belogsTo(Fixed::class);
     }
 }

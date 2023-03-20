@@ -25,7 +25,6 @@ Route::get('/email',function(){
     return view('email');
 });
 
-
 //リセット画面
 Route::get('/reset',function(){
     return view('reset');
@@ -45,9 +44,15 @@ route::get('post','PostController@showTimelinePage')->name('posts.create');
 route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
-//固定タイムライン表示
-// Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
+//固定タイムライン処理
+Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
+//固定タイムライン一覧表示
+route::get('/fixed',function(){
+    return view('timelines.fixed_timeline');
+});
+Route::get('/timeline/desplay','TimelineController@display')->name('timelines.fixed');
+Route::get('/timeline/fixed/desplay','TimelineController@display')->name('timelines.fixed');
 //トーク送信
 Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
