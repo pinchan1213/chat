@@ -3,7 +3,7 @@
 <div class="bg_pattern Lines_v4"></div>
 <header class="header float top">
   <div class="timeline_width timeline_wrapper">
-    <form action="timelines.timeline" method="post" class="search_form">
+    <form action="" method="post" class="search_form">
       @csrf
           <div class="dropdown">
       @if(Auth::check())
@@ -16,6 +16,7 @@
           <button class="dropdown-item" type="button"><a href="talk">トーク</a></button>
           <button class="dropdown-item" type="button"><a href="/">マイページ</a></button>
           <button  id="logout" class="dropdown-item" type="button"><a href="/">ログアウト</a></button>
+    </form>
       @else
       <a href="top">topへ戻る</a>
       @endif
@@ -28,7 +29,7 @@
     <li>
       <div class="timeline_content">
       @foreach($timelines as $timeline)
-      <div class="t float" data-user-id="{{ Auth::user()->id }}">
+      <div class="timeline float" data-user-id="{{ Auth::user()->id }}">
         <div class="timeline_flex float" ">
         <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
           <h3 class="user p fixUser">{{ Auth::user()->name }}</h3>

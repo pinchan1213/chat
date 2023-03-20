@@ -1,7 +1,7 @@
 //ajax処理
 $(".fix").on("click", function () {
   let $fixed = $('js_fix');//固定ボタン
-  let $fixUser = $('.timeline_content').data('user-id');//いいしたユーザー
+  let $fixUser = $('.timeline').data('user-id');//いいしたユーザー
   let $fixpostid = $('.fa-thumbtack').data('id')//コントローラーに渡すパラメーター
   // let $this = $(this);
   // $fixpostid = $this.data('timeline_id');
@@ -20,7 +20,7 @@ $(".fix").on("click", function () {
         'timeline_id': $fixpostid,//TimelineIDを渡す
       },
     }).done(function(data){ //ajaxリクエストが成功した場合
-      // console.log(data);
+      console.log(data);
       $(this).toggleClass("font-color-red");//アイコンが赤くなる
     }).fail(function (data, xhr, err) {
       //ここの処理はエラーが出た時にエラー内容をわかるようにしておく。

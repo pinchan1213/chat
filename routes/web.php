@@ -21,13 +21,14 @@ use App\Http\Controllers\UserController;
 Route::get('/top',function(){
     return view('top');
 });
+Route::get('/email',function(){
+    return view('email');
+});
+
 
 //リセット画面
 Route::get('/reset',function(){
     return view('reset');
-});
-Route::get('/reset/mail',function(){
-    return view('mail');
 });
 
 // Route::get('/mypage',function(){
@@ -35,7 +36,7 @@ Route::get('/reset/mail',function(){
 // });
 
 //ミドルウェア認証
-Route::group(['middleware' => 'auth'], function() {
+// Route::group(['middleware' => 'auth'], function() {
 //ログイン後のアクセスページ
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -45,7 +46,7 @@ route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 //固定タイムライン表示
-Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
+// Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 //トーク送信
 Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
@@ -63,8 +64,8 @@ Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
 //パスワード再設定
-// Route::get('/mail','TestMailController@index')->name('mail.reset');
-// Route::post('/mail','TestMailController@index');
+Route::get('/mail', [MailSendController::class,'index'])->name('mail.index');
+Route::post('/mail', 'MailSendController@index');
 
 //マイページ編集画面
 Route::get('/edit',function(){
@@ -74,7 +75,7 @@ Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');
 
-});//ミドルウェア認証終わり
+// });//ミドルウェア認証終わり
 
 // 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義
 Auth::routes();

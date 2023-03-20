@@ -21,7 +21,6 @@ class TimelineController extends Controller
     }
 
     public function fixed(Request $request){
-    return json_decode('aaa');
 
      $user_id = Auth::user()->id;
      $timeline_id = $request->timeline_id;

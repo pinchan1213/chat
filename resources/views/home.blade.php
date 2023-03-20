@@ -17,20 +17,21 @@
           <button class="dropdown-item" type="button"><a href="talk">トーク</a></button>
           <button class="dropdown-item" type="button"><a href="/">マイページ</a></button>
           <button  id="logout" class="dropdown-item" type="button"><a href="/">ログアウト</a></button>
+        </div>
+      </form>
+    </div><!--timeline_width-->
+    <div class="box-015">マイページ</div>
+      <div class="mypage_wrapper">
+        <div class="mypage_img">
+        <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="">
+        </div>
+        <div class="mypage_name float top">{{ optional(Auth::user())->name }}</div>
+        <div class="mypage_name float ">{{ optional(Auth::user())->email }}</div>
+        <div class="_a"><a href="edit">変更する</a></div>
+      </div><!-- mypage_wrapper  -->
+    </header>
+
       @else
-      <a href="top">topへ戻る</a>
+      <a href="/top">topへ戻る</a>
       @endif
-      </div>
-    </form>
-  </div><!--timeline_width-->
-  <div class="box-015">マイページ</div>
-    <div class="mypage_wrapper">
-      <div class="mypage_img">
-      <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="">
-      </div>
-      <div class="mypage_name float top">{{ optional(Auth::user())->name }}</div>
-      <div class="mypage_name float top">{{ optional(Auth::user())->email }}</div>
-      <div class="_a"><a href="edit">変更する</a></div>
-    </div>
-</header>
 @endsection

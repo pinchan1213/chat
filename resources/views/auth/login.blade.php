@@ -19,7 +19,7 @@
             <input type="text" name="password" id="password">
             <input type="submit" value="ログイン" class="btn" >
           </form>
-          <a href="{{ route('password.email') }}">パスワードをお忘れの方はこちらから</a>
+          <a href="route {{email}}">パスワードをお忘れの方はこちらから</a>
       </div><!--form_flame-->
     </div><!--content-->
   </div>

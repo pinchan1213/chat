@@ -1,6 +1,6 @@
 @extends('template')
 @section('content') 
-<header class="header_mypage">
+<!-- <header class="header_mypage">
   <div class="mypage_text">マイページ</div>
     <div class="mypage_wrapper">
       <div class="mypage_img iconimage">
@@ -15,5 +15,5 @@
             <li class="btn_item"><a href="edit">変更する</a></li>
         </ul>
     </div>
-</header>
+</header> -->
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class TestMail extends Mailable
+class MailTest extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +18,8 @@ class TestMail extends Mailable
      */
     public function __construct()
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -28,9 +29,8 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this
-        ->form('php artisan make:mail TestMail')
-        ->subject('パスワード再設定リンク')
-        ->view('mail.password-reset');
+        return $this->to($this->email)
+               ->subject('パスワード再設定リンク')
+               ->view('mail.password-resset');
     }
 }
