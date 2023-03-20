@@ -24,10 +24,10 @@ class CreateFixedTable extends Migration
             
             // 外部キーを設定する
             $table->foreign('user_id')->references('id')->on('users');
-            $table->constrained();//userテーブルのidカラムを参照するメソッド
-            $table->unique(['user_id', 'timeline_id']);
-            $table->onDelete('cascade');//削除時のオプション
-            $table->foreginId('timeline_id')->constrained()->onDelete('cascade');
+            // $table->constrained();//userテーブルのidカラムを参照するメソッド
+            // $table->unique(['user_id', 'timeline_id']);
+            // $table->onDelete('cascade');//削除時のオプション
+            // $table->foreginId('timeline_id')->constrained()->onDelete('cascade');
         });
     }
 
