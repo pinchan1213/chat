@@ -22,13 +22,13 @@
     </header>
 <section>
 <div class="talk">
-	<div class="talk_left">
-    テキストテキスト
+	<div class="balloon-009">
+    <p>テキストテキスト</p>
 	</div>
   @foreach ($talks as $talk)
   <div class="talk_fixed">
   <li>{{$talk->created_at}}</li>
-	<div class="talk_right">
+	<div class="balloon-010">
     <ul class="ul_right">
 		<li class="talk_text">{{ $talk->content }}</li>
   </ul>
