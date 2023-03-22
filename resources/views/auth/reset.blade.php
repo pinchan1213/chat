@@ -12,6 +12,7 @@
           @endif
         <form action="{{ route('password.update') }}" method="get">
             @csrf
+            <input type="hidden" name="token" value="{{ $token }}" />
             <label class="text ">ユーザーネーム</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}">
             <label class="text">メールアドレス</label>

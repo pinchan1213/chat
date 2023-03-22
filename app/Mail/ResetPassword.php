@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class ResetPassword extends Mailable
 {
     use Queueable, SerializesModels;
+    public $token;
 
     /**
      * Create a new message instance.
      *
-     * @return void
-     */
+     * @param $taken
+    */
     public function __construct($token)
     {
-        $this->token=$token;
+        $this->token = $token;
     }
 
     /**

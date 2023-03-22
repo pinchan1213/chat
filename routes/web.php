@@ -82,8 +82,8 @@ Route::get('/mypage',function(){
     return view('mypage');
 })->name('mypage');
 //パスワード再設定
-Route::get('/mail', [MailSendController::class,'index'])->name('mail.index');
-Route::post('/mail', 'MailSendController@index');
+// Route::get('/mail', [MailSendController::class,'index'])->name('mail.index');
+// Route::post('/mail', 'MailSendController@index');
 
 //マイページ編集画面
 Route::get('/edit',function(){

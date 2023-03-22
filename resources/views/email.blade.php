@@ -10,7 +10,7 @@
               @endforeach
             </div>
           @endif
-        <form action="email" method="post">
+        <form action="email" method="get">
             @csrf
             <label class="text">メールアドレス</label>
             <input type="text" name="email" id="email" value="{{ old('email') }}">
