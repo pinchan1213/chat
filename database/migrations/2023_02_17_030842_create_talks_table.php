@@ -19,7 +19,7 @@ class CreateTalksTable extends Migration
             $table->bigInteger('timeline_id')->unsigned()->nullable()->change();
             $table->string('name')->nullable()->change();
             $table->integer('comment_num');
-            $table->text('content');
+            $table->text('message');
             $table->text('images')->nullable()->change();
             $table->integer('partner_id');
             $table->timestamps();

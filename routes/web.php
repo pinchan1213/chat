@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -48,15 +51,25 @@ Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 //固定タイムライン一覧表示
-route::get('/fixed',function(){
-    return view('timelines.fixed_timeline');
-});
-Route::get('/timeline/desplay','TimelineController@display')->name('timelines.fixed');
+// route::get('/fixed',function(){
+//     return view('timelines.fixed_timeline');
+// });
+Route::get('/timeline/fixed','TimelineController@display')->name('timelines.fixed');
 Route::get('/timeline/fixed/desplay','TimelineController@display')->name('timelines.fixed');
 //トーク送信
 Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
 Route::post('/talk', 'TalkController@index')->name('talks.index');
+Route::post('/talk', function (Request $request) {
+    event(
+        new Message(
+            $request->input('name'),
+            $request->input('message')
+        )
+    );
+    // return view('index');
+    return ["success" => true];
+});
 //トーク画面
 Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');

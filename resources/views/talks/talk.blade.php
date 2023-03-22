@@ -30,7 +30,7 @@
   <li>{{$talk->created_at->format('H:i')}}</li>
 	<div class="balloon-010">
     <ul class="ul_right">
-		<li class="talk_text">{{ $talk->content }}</li>
+		<li class="talk_text">{{ $talk->message }}aaa</li>
   </ul>
 </div>
 </div><!--talk_fixed-->

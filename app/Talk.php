@@ -10,7 +10,7 @@ class Talk extends Model
         'user_id',
         'name',
         'comment_num',
-        'content',
+        'message',
         'images',
         'partner_id',
         'created',

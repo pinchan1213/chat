@@ -42,9 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function post()
+    public function post()//投稿紐づけ
     {
         return $this->hasMany('App\Timeline');
+    }
+    public function talk()//トーク紐づけ
+    {
+        return $this->hasMany('App\Talk');
     }
     public function fixed()
     {

@@ -2,7 +2,7 @@
 $(".fix").on("click", function () {
   let $fixed = $('js_fix');//固定ボタン
   let $fixUser = $('.timeline').data('user-id');//いいしたユーザー
-  let $fixpostid = $('.fa-thumbtack').data('id')//コントローラーに渡すパラメーター
+  let $fixpostid = $('.fa-thumbtack').data('id');//コントローラーに渡すパラメーター
   // let $this = $(this);
   // $fixpostid = $this.data('timeline_id');
 
@@ -21,10 +21,10 @@ $(".fix").on("click", function () {
       },
     }).done(function(data){ //ajaxリクエストが成功した場合
       if(data == 1){
-        console.log('登録に成功しました。')
+        console.log('登録に成功しました。');
         // $(this).toggleClass("font-color-red");//アイコンが赤くなる
       }else{
-        $(this).removeClass("font-color-red")
+        $(this).removeClass("font-color-red");
         // console.log(err);
         // console.log(xhr);
       }

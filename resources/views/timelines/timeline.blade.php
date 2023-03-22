@@ -31,6 +31,7 @@
       @foreach($timelines as $timeline)
       <div class="timeline float" data-user-id="{{ Auth::user()->id }}">
         <div class="timeline_flex float" ">
+        <!-- プロフィール写真  -->
         <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
           <h3 class="user p fixUser">{{ Auth::user()->name }}</h3>
           <div class="pin_img">

@@ -1,5 +1,5 @@
-window.Echo.channel('message-added-channel')
-.listen('MessageAdded',function(data){
+window.Echo.channel('chat')
+.listen('Message',function(data){
    console.log('received a message');
    console.log(data);
    let newmessage = data.message[0].message;
