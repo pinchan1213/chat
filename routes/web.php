@@ -77,6 +77,9 @@ Route::post('/talk', 'TalkController@create');
 Route::get('/talk_all',function(){
     return view('talks.talk_all');
 });
+
+Route::get('/talk/{user_id}' , 'TalkAllController@index')->name('chat');
+Route::post('/talk/all' , 'TalkAllControlle@store')->name('chatSend');
 //マイページ
 Route::get('/mypage',function(){
     return view('mypage');
