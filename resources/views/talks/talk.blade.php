@@ -30,7 +30,7 @@
   <li>{{$talk->created_at->format('H:i')}}</li>
 	<div class="balloon-010">
     <ul class="ul_right">
-		<li class="talk_text">{{ $talk->message }}aaa</li>
+		<li class="talk_text">{{ $talk->message }}</li>
   </ul>
 </div>
 </div><!--talk_fixed-->
@@ -42,7 +42,7 @@
       <form action="{{ route('talks.create')}}" method="post" class="talk_form">
         @csrf
         <div class="talk_wrapper">
-        <input type="text" name="content" id="talk" class="search">
+        <input type="text" name="message" id="talk" class="search">
         <button type="submit" class="talk_btn"></button>
         </div>
       </form>
