@@ -27,7 +27,7 @@
 	</div>
   @foreach ($talks as $talk)
   <div class="talk_fixed">
-  <li>{{$talk->created_at}}</li>
+  <li>{{$talk->created_at->format('H:i')}}</li>
 	<div class="balloon-010">
     <ul class="ul_right">
 		<li class="talk_text">{{ $talk->content }}</li>
