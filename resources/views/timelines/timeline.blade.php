@@ -32,8 +32,8 @@
       <div class="timeline float" data-user-id="{{ Auth::user()->id }}">
         <div class="timeline_flex float" ">
         <!-- プロフィール写真  -->
-        <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
-          <h3 class="user p fixUser">{{ Auth::user()->name }}</h3>
+        <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
+          <h3 class="user p fixUser">{{ $timeline->name }}</h3>
           <div class="pin_img">
             <button class="js_fix" data-timeline_id="{{ $timeline->id }}">
             <i class="fa-solid fix fa-thumbtack" data-id="{{ $timeline->id }}"></i>
