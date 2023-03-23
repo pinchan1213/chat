@@ -15,10 +15,7 @@ class TalkController extends Controller
         ]);
     }
 
-    public function create(Request $request){//トーク送信処理//
-        // $validator = $request->validate([
-        //     'content' => ['required', 'string', 'max:200'],
-        // ]);
+    public function create(int $id ,Request $request){//トーク送信処理//
         $talk = new Talk();
         $talk->user_id = Auth::user()->id;
         $talk->name = Auth::user()->name;

@@ -60,14 +60,6 @@ Route::get('/talk/{id}', 'TalkController@showCreateTalk')->name('talk');
 //ユーザー一覧表示
 Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');
 
-//マイページ
-Route::get('/mypage',function(){
-    return view('mypage');
-})->name('mypage');
-//パスワード再設定
-// Route::get('/mail', [MailSendController::class,'index'])->name('mail.index');
-// Route::post('/mail', 'MailSendController@index');
-
 //マイページ編集画面
 Route::get('/edit',function(){
     return view('edit');
