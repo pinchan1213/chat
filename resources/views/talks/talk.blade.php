@@ -41,6 +41,8 @@
   <footer class="footer">
       <form action="{{ route('talks.create')}}" method="post" class="talk_form">
         @csrf
+        <!-- //トークルームの情報を保有 -->
+        {{-- <input type="hidden" name="" value={{$id}}>  --}}
         <div class="talk_wrapper">
         <input type="text" name="message" id="talk" class="search">
         <button type="submit" class="talk_btn"></button>

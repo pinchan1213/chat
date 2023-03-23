@@ -51,33 +51,16 @@ Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 //固定タイムライン一覧表示
-// route::get('/fixed',function(){
-//     return view('timelines.fixed_timeline');
-// });
-Route::get('/timeline/fixed','TimelineController@display')->name('timelines.fixed');
-Route::get('/timeline/fixed/desplay','TimelineController@display')->name('timelines.fixed');
-//トーク送信
-Route::get('/talk', 'TalkController@showTalkPage')->name('talks.create');
-Route::post('/talk', 'TalkController@create');
-Route::post('/talk', 'TalkController@index')->name('talks.index');
-Route::post('/talk', function (Request $request) {
-    event(
-        new Message(
-            $request->input('name'),
-            $request->input('message')
-        )
-    );
-    // return view('index');
-    return ["success" => true];
-});
-//トーク画面
+
+//トーク画面,送信処理
 Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
 
-//トーク一覧
+//ユーザー一覧表示
 Route::get('/talk_all',function(){
     return view('talks.talk_all');
 });
+
 //マイページ
 Route::get('/mypage',function(){
     return view('mypage');
