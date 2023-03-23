@@ -4,23 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Talk;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class TalkController extends Controller
 {
-    public function showCreateTalk(){//データを保存
+    public function showCreateTalk(){
         $talks = Talk::all();
         return view('talks.talk',[
             'talks' => $talks,
         ]);
     }
 
-    public function create(Request $request){//トーク送信処理
+    public function create(Request $request){//
         // $validator = $request->validate([
         //     'content' => ['required', 'string', 'max:200'],
         // ]);
-        $talk = User::where("id" , "!=" , Auth::user()->id)->get();
 
         $talk = new Talk();
         $talk->user_id = Auth::user()->id;

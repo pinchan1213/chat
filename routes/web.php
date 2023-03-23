@@ -55,10 +55,10 @@ Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed
 //トーク画面,送信処理
 Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
+Route::get('/talk/{id}', 'TalkController@showCreateTalk')->name('talk');
 
 //ユーザー一覧表示
 Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');
-Route::get('/talk/{id}', 'TalkController@showCreateTalk')->name('talk');
 
 //マイページ
 Route::get('/mypage',function(){
