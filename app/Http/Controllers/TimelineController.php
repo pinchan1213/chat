@@ -24,16 +24,16 @@ class TimelineController extends Controller
 
      $user_id = $request->id;
      $timeline_id = $request->timeline_id;
-     $fixed = Fixed::where('user_id',$user_id)->where('timeline_id',$timeline_id)->first();
+     $fixed = fixed::where('user_id',$user_id)->where('timeline_id',$timeline_id)->first();
 
      if(empty($fixed)){//投稿にいいねしていなかったら
-        $fixed = new Fixed;//インスタンスの作成
+        $fixed = new fixed;//インスタンスの作成
         $fixed->timeline_id = $timeline_id;
         $fixed->user_id = $user_id;
         $fixed->save();
         return 1;
      }else{//いいねしていたら
-        Fixed::where('timeline_id',$timeline_id)->where('user_id',$user_id)->delete();
+      fixed::where('timeline_id',$timeline_id)->where('user_id',$user_id)->delete();
         return 0;
      }
   }

@@ -20,7 +20,7 @@
     <dd><input type="text" name="name" value="{{ Auth::user()->name }}"></dd>
     <dt>メールアドレス</dt>
     <dd><input type="text" name="email" value="{{ Auth::user()->email }}"></dd>
-    <dd><a href="reset">パスワードの再設定</a>
+    <dd><a href="email">パスワードの再設定</a>
     </dd>
     <dd class="mypage_img"><input type="file" name="iconimage">
     <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt=""></dd>

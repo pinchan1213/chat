@@ -627,7 +627,7 @@ section{
 .mypage_img{
   display:block;
   margin: 0 auto;
-  width: 200px;
+  width: 150px;
   height: auto;
 }
 
@@ -659,6 +659,7 @@ section{
 .UserProfile{
   max-width: 80%;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .ddEmail{

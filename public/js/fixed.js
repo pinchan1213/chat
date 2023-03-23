@@ -1,5 +1,6 @@
 //ajax処理
 $(".fix").on("click", function () {
+  let $fix = $(this);
   let $fixed = $('js_fix');//固定ボタン
   let $fixUser = $('.timeline').data('user-id');//いいしたユーザー
   let $fixpostid = $('.fa-thumbtack').data('id');//コントローラーに渡すパラメーター
@@ -21,12 +22,10 @@ $(".fix").on("click", function () {
       },
     }).done(function(data){ //ajaxリクエストが成功した場合
       if(data == 1){
-        console.log('登録に成功しました。');
-        // $(this).toggleClass("font-color-red");//アイコンが赤くなる
+        // console.log('登録に成功しました。');
+        $fix.toggleClass("font-color-red");//アイコンが赤くなる
       }else{
-        $(this).removeClass("font-color-red");
-        // console.log(err);
-        // console.log(xhr);
+        $fix.toggleClass("font-color-red");
       }
     }).fail(function (data, xhr, err) {
       //ここの処理はエラーが出た時にエラー内容をわかるようにしておく。

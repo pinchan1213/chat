@@ -24,23 +24,14 @@
     <div class="container">
     <section>
 <table class="table">
-    <tbody>
+    <div class="user_group">
+      foreach($users as $user)
         <tr>
-            <td><img src="{{ asset('images/human.png') }}"  alt="" width="50px"></td>
-            <td>名前</td>
-            <td>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td>
-          </tr>
-          <tr>
-            <td><img src="{{ asset('images/human.png') }}" class="img-fluid" alt=""></td>
-            <td>名前</td>
-            <td>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td>
-          </tr>
-          <tr>
-            <td><img src="{{ asset('images/human.png') }}" class="img-fluid" alt=""></td>
-            <td>名前</td>
-            <td>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td>
+            <td><img src="{{ asset('images/human.png') }}"  alt="" width="50px">{{ $user->images }}</td>
+            <td>{{ $user->user_id }}</td>
+            <td><a href="{{ route('talk', ['id' => $users->id]) }}" class="{{ $partne_id === $user->id ? 'active' : '' }}"><td>
         </tr>
-    </tbody>
+     </div>
 </table>
 </section>
 </div>
