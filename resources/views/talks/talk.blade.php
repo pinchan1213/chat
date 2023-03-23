@@ -23,6 +23,7 @@
 <section>
 <div class="talk">
 	<div class="balloon-009">
+  <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
     <p>テキストテキスト</p>
 	</div>
   @foreach ($talks as $talk)

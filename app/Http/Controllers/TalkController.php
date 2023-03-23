@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Talk;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class TalkController extends Controller
@@ -19,6 +20,7 @@ class TalkController extends Controller
         // $validator = $request->validate([
         //     'content' => ['required', 'string', 'max:200'],
         // ]);
+        $talk = User::where("id" , "!=" , Auth::user()->id)->get();
 
         $talk = new Talk();
         $talk->user_id = Auth::user()->id;
