@@ -73,13 +73,11 @@ Route::post('/talk', function (Request $request) {
 //トーク画面
 Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
+
 //トーク一覧
 Route::get('/talk_all',function(){
     return view('talks.talk_all');
 });
-
-Route::get('/talk/{user_id}' , 'TalkAllController@index')->name('chat');
-Route::post('/talk/all' , 'TalkAllControlle@store')->name('chatSend');
 //マイページ
 Route::get('/mypage',function(){
     return view('mypage');
