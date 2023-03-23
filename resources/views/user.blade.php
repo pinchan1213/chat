@@ -25,12 +25,15 @@
     <section>
 <table class="table">
     <div class="user_group">
-      foreach($users as $user)
+      @foreach($users as $user)
         <tr>
-            <td><img src="{{ asset('images/human.png') }}"  alt="" width="50px">{{ $user->images }}</td>
-            <td>{{ $user->user_id }}</td>
-            <td><a href="{{ route('talk', ['id' => $users->id]) }}" class="{{ $partne_id === $user->id ? 'active' : '' }}"><td>
+            <td>
+              <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png') }}" alt="" style="max-width: 10px;">
+            </td>
+            <td><a href="{{ route('talk', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
         </tr>
+        <!-- <div class="line gap"></div> -->
+      @endforeach
      </div>
 </table>
 </section>

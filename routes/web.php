@@ -57,9 +57,8 @@ Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
 Route::post('/talk', 'TalkController@create');
 
 //ユーザー一覧表示
-Route::get('/user',function(){
-    return view('user');
-});
+Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');
+
 Route::get('/talk/{id}', 'UserAllController@index')->name('talk');
 
 //マイページ
