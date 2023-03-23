@@ -25,7 +25,7 @@ class TalkController extends Controller
         $talk->name = Auth::user()->name;
         $talk->comment_num = 1;
         $talk->message = $request->message;
-        $talk->$request::input('partner_id');
+        $talk->partner_id = 1;
         $talk->save();
         return back();
     }
