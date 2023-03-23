@@ -8,18 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class TalkController extends Controller
 {
-    public function showCreateTalk(){
+    public function showCreateTalk(){//データを保存
         $talks = Talk::all();
         return view('talks.talk',[
             'talks' => $talks,
         ]);
     }
 
-    public function create(Request $request){//
+    public function create(Request $request){//トーク送信処理//
         // $validator = $request->validate([
         //     'content' => ['required', 'string', 'max:200'],
         // ]);
-
         $talk = new Talk();
         $talk->user_id = Auth::user()->id;
         $talk->name = Auth::user()->name;
