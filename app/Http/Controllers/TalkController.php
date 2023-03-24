@@ -15,14 +15,15 @@ class TalkController extends Controller
         //すべてのトークルームを取得する
         // $users = User::all();
 
-        //選ばれたユーザーを取得
+        //画像や名前を取得
         $partner_info = User::find($id);
 
-        //選ばれたユーザーに紐づく相手のトークを取得
+        //自分の情報を取得
         $users = Talk::select('users.id','users.name','users.images','talks.partner_id', 'talks.message','talks.created_at')
         ->join('users', 'talks.user_id', '=', 'users.id')
         ->get();
 
+        //相手側の情報を取得
         $partners = Talk::select('users.id','users.name','users.images','talks.user_id', 'talks.message','talks.created_at')
         ->join('users', 'talks.partner_id', '=', 'users.id')
         ->get();
