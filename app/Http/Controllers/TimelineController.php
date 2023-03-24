@@ -50,8 +50,8 @@ class TimelineController extends Controller
     //データを取得
     $display_all = Timeline::all();
     //タイムラインのデータを紐づけ(取得)
-    $timelines =Timelines::select('user_id','name','images','timelines.user_id','timelines.timelines_id')
-    ->join('fixed','timelines.user_id','timelines.timeline_id','=','fixed.user_id','fixed.timeline_id')
+    $timelines =Timeline::select('user_id','name','images','timelines_id','post')
+    ->join('fixed','timelines.timeline_id','=','fixed.timeline_id')
     ->get();
     return view('timelines.fixed_timeline',[
       'display_all' =>$display_all,
@@ -59,5 +59,11 @@ class TimelineController extends Controller
     ]);
   }
 }
+
+// 正しい構文
+// SELECT users.user_id, users.name, users.images, timelines.user_id, timelines.timelines_id, timelines.post 
+// FROM timelines 
+// JOIN fixed ON timelines.user_id = fixed.timeline_id 
+// WHERE timelines.user_id = ?
 
 
