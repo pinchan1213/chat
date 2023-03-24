@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Fixed;
 
+
 class TimelineController extends Controller
 {
     public function index(Request $request){//タイムラインテーブルにデータを登録
@@ -46,10 +47,16 @@ class TimelineController extends Controller
   }
 
   public function display(Request $request){//いいねした投稿の一覧を取得
-    $displays = $request->Timeline::orderBy('create_at', 'desc')->paginate(10);//全テーブルから投稿を取得
-    $displays = $request->Fixed::Where('user_id')->get();//いいねしたユーザーを絞り込み
-    $data = [ 'post' => $displays,];
-    return view('timelines.fixed_timeline',$data);
+    //データを取得
+    $display_all = Timeline::all();
+    //タイムラインのデータを紐づけ(取得)
+    $timelines =Timelines::select('user_id','name','images','timelines.user_id','timelines.timelines_id')
+    ->join('fixed','timelines.user_id','timelines.timeline_id','=','fixed.user_id','fixed.timeline_id')
+    ->get();
+    return view('timelines.fixed_timeline',[
+      'display_all' =>$display_all,
+      'timelines'=>$timelines,
+    ]);
   }
 }
 
