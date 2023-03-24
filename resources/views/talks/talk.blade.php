@@ -22,16 +22,18 @@
 </header>
 <section>
   <div class="talk">
+    <!-- 相手側 -->
     @foreach($partners as $partner)
     @if($partner->id == Auth::user()->id && $partner->user_id == $partner_id)
     <div class="balloon-009">
-      <img src="{{ isset($partner->images) ? asset('storage/images/' . $partner->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
-      <h3 class="user p fixUser">{{ $partner->name }}</h3>
+      <img src="{{ isset($partner_info->images) ? asset('storage/images/' . $partner_info->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
+      <h3 class="user p fixUser">{{ $partner_info->name }}</h3>
       <p>{{ $partner->message }}</p>
     </div>
     @endif
     @endforeach
 
+    <!-- 自分側 -->
     @foreach ($users as $user)
     @if($user->id == Auth::user()->id && $user->partner_id == $partner_id)
       <div class="talk_fixed">

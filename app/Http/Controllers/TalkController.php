@@ -16,7 +16,7 @@ class TalkController extends Controller
         // $users = User::all();
 
         //選ばれたユーザーを取得
-        // $user_id = User::find($id);
+        $partner_info = User::find($id);
 
         //選ばれたユーザーに紐づく相手のトークを取得
         $users = Talk::select('users.id','users.name','users.images','talks.partner_id', 'talks.message','talks.created_at')
@@ -33,7 +33,8 @@ class TalkController extends Controller
         return view('talks.talk',[
             'users' => $users,
             'partners' => $partners,
-            'partner_id' => $id
+            'partner_id' => $id,
+            'partner_info' => $partner_info
         ]);
     }
 
