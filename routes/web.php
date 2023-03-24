@@ -53,9 +53,9 @@ Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed
 //固定タイムライン一覧表示
 
 //トーク画面,送信処理
-Route::get('/talk', 'TalkController@showCreateTalk')->name('talks.create');
-Route::post('/talk', 'TalkController@create');
-Route::get('/talk/{id}', 'TalkController@showCreateTalk')->name('talk');
+Route::get('/talk/{id}', 'TalkController@showCreateTalk')->name('talks');//トーク相手紐づけ
+Route::post('/talk', 'TalkController@create')->name('talks.create');//トーク送信処理
+// Route::get('/talk/{id}', 'TalkController@showCreateTalk')->name('talk');
 
 //ユーザー一覧表示
 Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');

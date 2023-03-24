@@ -16,15 +16,4 @@ class UserAllContrller extends Controller
             'users' => $users,
         ]);
     }
-
-    public function index(int $id ,Request $request){
-        $talk = new User();
-        $talk->user_id = Auth::user()->id;
-        $talk->name = Auth::user()->name;
-        $talk->comment_num = 1;
-        $talk->message = $request->message;
-        $talk->partner_id = 1;
-        $talk->save();
-        return back();
-    }
 }

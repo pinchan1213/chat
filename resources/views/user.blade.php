@@ -30,7 +30,7 @@
             <td>
               <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png') }}" alt="" style="max-width: 10px;">
             </td>
-            <td><a href="{{ route('talk', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
+            <td><a href="{{ route('talks', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
         </tr>
         <!-- <div class="line gap"></div> -->
       @endforeach
