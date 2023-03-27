@@ -26,6 +26,7 @@
     @foreach($partners as $partner)
     @if($partner->id == Auth::user()->id && $partner->user_id == $partner_id)
     <div class="balloon-009">
+      <!-- ユーザー側プロフィール、名前表示 -->
       <img src="{{ isset($partner_info->images) ? asset('storage/images/' . $partner_info->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
       <h3 class="user p fixUser">{{ $partner_info->name }}</h3>
       <p>{{ $partner->message }}</p>

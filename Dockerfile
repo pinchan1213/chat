@@ -1,11 +1,6 @@
 # 公式のPHP 8.0.0イメージにApache web serverがプリインストールされたベースイメージを設定
 FROM php:8.0.0-apache
 
-# コンテナに必要なパッケージ(zip、unzip、git)をインストール
-RUN apt-get update && apt-get install -y \
-  zip \
-  unzip \
-  git \
 # ここを追記 libpq-dev（PHPからPostgreSQLに接続するために必要なライブラリ）
 RUN apt-get update && apt-get install -y \
   zip \
