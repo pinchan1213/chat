@@ -32,15 +32,15 @@
       <div class="timeline float" data-user-id="{{ Auth::user()->id }}">
         <div class="timeline_flex float" ">
         <!-- プロフィール写真  -->
-        <img src="{{ isset($display_all->images) ? asset('storage/images/' . $display_all->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
-          <h3 class="user p fixUser">{{ $display_all->name }}</h3>
+        <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
+          <h3 class="user p fixUser">{{ $timeline->name }}</h3>
           <div class="pin_img">
             <button class="js_fix" data-timeline_id="{{ $timeline->id }}">
             <i class="fa-solid fix fa-thumbtack" data-id="{{ $timeline->id }}"></i>
             </button>
           </div>
         </div><!--timeline_flex-->
-        <div class="composition p ">{{ $display_all->post }}</div>
+        <div class="composition p ">{{ $timeline->post }}</div>
         <div class="line gap"></div>
         @endforeach
       </div>
