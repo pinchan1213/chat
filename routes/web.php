@@ -48,7 +48,7 @@ route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 //固定タイムライン処理
-Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
+// Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 //固定タイムライン一覧表示
 Route::get('/fixed','TimelineController@display')->name('timelines.fixed');

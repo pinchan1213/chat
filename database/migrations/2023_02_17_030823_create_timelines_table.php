@@ -16,10 +16,10 @@ class CreateTimelinesTable extends Migration
         Schema::create('timelines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->bigInteger('timeline_id')->constrained()->nullable()->change();
-            $table->string('name')->nullable()->change();
+            $table->bigInteger('timeline_id')->constrained()->nullable();
+            $table->string('name')->nullable();
             $table->text('post');
-            $table->tinyInteger('timeline_fixed')->nullable()->change();
+            $table->tinyInteger('timeline_fixed')->nullable();
             $table->timestamps();
             
             $table->softDeletes();

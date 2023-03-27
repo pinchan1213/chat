@@ -16,11 +16,11 @@ class CreateTalksTable extends Migration
         Schema::create('talks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();//マイナスを表示させない
-            $table->bigInteger('timeline_id')->unsigned()->nullable()->change();
-            $table->string('name')->nullable()->change();
+            $table->bigInteger('timeline_id')->unsigned()->nullable();
+            $table->string('name')->nullable();
             $table->integer('comment_num');
             $table->text('message');
-            $table->text('images')->nullable()->change();
+            $table->text('images')->nullable();
             $table->integer('partner_id');
             $table->timestamps();
 

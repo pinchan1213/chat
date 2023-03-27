@@ -48,15 +48,18 @@ class TimelineController extends Controller
 
   public function display(Request $request){//いいねした投稿の一覧を取得
     //データを取得
-    $display_all = Timeline::all();
+    // $display_all = Timeline::all();
     // dd($display_all );
     //タイムラインのデータを紐づけ(取得)
-    $timelines =Timeline::select('timelines.user_id','name','images','timeline_id','post')
+    $timelines =Timeline::select('users.name','users.images','post')
     ->join('fixed','timelines.id','=','fixed.timeline_id')
+    ->join('users', 'timelines.user_id', '=', 'users.id')
     ->get();
 
+    // dd($timelines);
+
     return view('timelines.fixed_timeline',[
-      'display_all' =>$display_all,
+      // 'display_all' =>$display_all,
       'timelines'=>$timelines,
     ]);
   }
