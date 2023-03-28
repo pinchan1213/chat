@@ -27,13 +27,7 @@
   <span></span>
 </div>
 <div id="mask"></div>
-     @else
-      <a href="/top">topへ戻る</a>
-      @endif
-   </div>
-   </form>
-</div><!--timeline_width-->
-    <div class="box15 float">
+<div class="box15 float">
     <div class="box-015">マイページ</div>
       <div class="mypage_wrapper float">
         <div class="mypage_img">
@@ -45,4 +39,10 @@
     </div><!---mypagecontent-->
       </div><!-- mypage_wrapper  -->
     </header>
+     @else
+      <a href="/top">topへ戻る</a>
+      @endif
+   </div>
+   </form>
+</div><!--timeline_width-->
 @endsection
