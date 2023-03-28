@@ -855,9 +855,9 @@ section{
 }
 
 .mypage_img{
-  display:block;
   margin: 0 auto;
-  width: 85px;
+  text-align: center;
+  width: 165px;
   height: auto;
 }
 

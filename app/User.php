@@ -48,7 +48,8 @@ class User extends Authenticatable
     }
     public function talk()//トーク紐づけ
     {
-        return $this->hasMany('App\Talk');
+        // return $this->hasMany('App\Talk');
+        return $this->belongsToMany(User::class, 'Talks', 'user_id', 'partner_id')->withTimestamps();
     }
     public function fixed()
     {

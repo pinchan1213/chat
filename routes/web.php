@@ -21,7 +21,7 @@ use App\Http\Controllers\UserController;
 |
 */
 //ログイン前のトップ画面
-Route::get('/top',function(){
+Route::get('/',function(){
     return view('top');
 });
 Route::get('/email',function(){
@@ -33,12 +33,8 @@ Route::get('/reset',function(){
     return view('reset');
 });
 
-// Route::get('/mypage',function(){
-//     return view('mypage');
-// });
-
 //ミドルウェア認証
-// Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function() {
 //ログイン後のアクセスページ
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -72,7 +68,7 @@ Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');
 
-// });//ミドルウェア認証終わり
+});//ミドルウェア認証終わり
 
 // 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義
 Auth::routes();
