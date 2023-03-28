@@ -46,6 +46,10 @@
     <form action="{{ route('posts.create')}}" method="post">
       {{ csrf_field() }}
       <input type="text" class="form-control" name="post" id="title" value="{{ old('post') }}" />
+
+
+      <!-- 投稿ボタン実装 -->
+      
       <button type="submit" class="move_btn">投稿する</button>
     </form>
     </div><!--timeline_conrent-->

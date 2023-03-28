@@ -37,7 +37,7 @@ $(".fix").on("click", function () {
               });
   });
 
-
+//ドロワーメニュー実装
   (function($) {
     var $nav   = $('#navArea');
     var $btn   = $('.toggle_btn');
@@ -56,3 +56,5 @@ $(".fix").on("click", function () {
       $nav.removeClass( open );
     });
   } )(jQuery);
+
+  

@@ -553,6 +553,7 @@ a.btn_06:hover span {
 
 
 input[type="text"]{
+  width: 100%;
   border-radius: 5px;
   margin-bottom: 30px;
 }
@@ -563,30 +564,6 @@ input[type="text"]{
   margin-bottom: 0.2em;
   float: left;
 }
-
-/* .search_form{
-  display: flex;
-  justify-content:right;
-} */
-
-/* .search{
- display: inline-block;
- max-width: 350px;
- border: none;
-}
-
-#search_btn{
- background-image: url(../images/serch.png);
- background-size: cover;
- background-repeat: no-repeat;
- background-color: #f6adc6;
- outline : none;
- display: inline-block;
- width: 52px;
- height: 50px;
- border: none;
- border-radius: 1em;
-} */
 
 .composition{
   line-height: 1.5;
@@ -606,6 +583,7 @@ input[type="text"]{
 
 .timeline_content{
   background-color: #fff;
+
   padding: 25px;
   margin: 0 auto;
   max-width: 98%;
@@ -664,7 +642,6 @@ input[type="text"]{
 input{
   display: block;
   box-sizing: border-box;
-  width: 100%;
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 25px;
@@ -675,7 +652,7 @@ input{
 .header{
   max-width: 1440px;
   width: 100%;
-  height: 100px;
+  /* height: 100px; */
 }
 .all{
   display: block;
@@ -777,6 +754,18 @@ section{
 	padding:1em;
   max-width: 95%;
   margin: 0 auto;
+  height: 500px;
+}
+
+.talk::-webkit-scrollbar {
+  display:none;
+}
+.wow::-webkit-scrollbar {
+  display:none;
+}
+.scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .talk_fixed {

@@ -32,7 +32,7 @@
 </div><!--timeline_width-->
 </header>
 <section>
-  <div class="talk">
+  <div class="talk scroll">
     <!-- 相手側 -->
     @foreach($partners as $partner)
     @if($partner->id == Auth::user()->id && $partner->user_id == $partner_id)
