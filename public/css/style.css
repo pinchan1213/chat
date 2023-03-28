@@ -7,6 +7,11 @@ html, body {
   line-height: 1.8;
 }
 
+.timelineImage{
+  width: 100px;
+  height: auto;
+}
+
 /*=============
 .bg_pattern
 ==============*/
@@ -559,12 +564,12 @@ input[type="text"]{
   float: left;
 }
 
-.search_form{
+/* .search_form{
   display: flex;
   justify-content:right;
-}
+} */
 
-.search{
+/* .search{
  display: inline-block;
  max-width: 350px;
  border: none;
@@ -581,7 +586,7 @@ input[type="text"]{
  height: 50px;
  border: none;
  border-radius: 1em;
-}
+} */
 
 .composition{
   line-height: 1.5;

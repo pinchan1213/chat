@@ -39,7 +39,7 @@
       @foreach($users as $user)
         <tr>
             <td>
-              <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png') }}" alt="" style="max-width: 10px;">
+            <img src="{{ isset($user->images) ? asset('storage/images/' . $user->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
             </td>
             <td><a href="{{ route('talks', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
         </tr>

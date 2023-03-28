@@ -37,7 +37,9 @@
   <div class="timeline_content">
   <div class="float top box-014">
     <div class="timeline_flex float">
-      <img src="{{ asset('images/human.png') }}" alt="" class="timeline_img">
+      <div class="timelineImage">
+    <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="">
+    </div>
       <h3 class="user p">{{ Auth::user()->name }}</h3>
     </div>
     <div class="timeline_wrapper">
