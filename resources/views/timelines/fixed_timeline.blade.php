@@ -14,7 +14,6 @@
       <li><a href="timeline">タイムライン</a></li>
       <li><a href="fixed">固定タイムライン</a></li>
       <li><a href="{{ route('user.all') }}">ユーザー一覧</a></li>
-      <li><a href="talk">トーク</a></li>
       <li><a href="/">マイページ</a></li>
       <li><a href="/" id="logout">ログアウト</a></li>
     </ul>
@@ -52,6 +51,7 @@
         </div><!--timeline_flex-->
         <div class="composition p ">{{ $timeline->post }}</div>
         <div class="line gap"></div>
+        <div class="float"></div>
         @endforeach
       </div>
       </div><!--timeline_content-->
