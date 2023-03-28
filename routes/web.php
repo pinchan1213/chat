@@ -20,10 +20,11 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//ログイン前のトップ画面
+// ログイン前のトップ画面
 Route::get('/',function(){
     return view('top');
 });
+
 Route::get('/email',function(){
     return view('email');
 });

@@ -21,7 +21,6 @@ return [
     // 略
 ],
 'string'=> ':attribute には文字を入力してください。',
-'unique'=> '入力いただいた :attribute はすでに使用されています。',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +107,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string'  => ':attribute は:min文字以上で入力してください。',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -132,9 +131,9 @@ return [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string'               => ':attribute には文字を入力してください。',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique'=> '入力いただいた :attribute はすでに使用されています。',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
