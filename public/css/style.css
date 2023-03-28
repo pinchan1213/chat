@@ -199,6 +199,127 @@ a{
 }
 
 /*==================================================================  共通クラス============================================*/
+/*============
+nav
+=============*/
+nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  width: 300px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all .5s;
+  z-index: 3;
+  opacity: 0;
+}
+.open nav {
+  left: 0;
+  opacity: 1;
+}
+nav .inner {
+  padding: 25px;
+}
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+@media screen and (max-width: 767px) {
+  nav {
+    left: -220px;
+    width: 220px;
+  }
+}
+/*============
+.toggle_btn
+=============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+}
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.toggle_btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+  top: 14px;
+}
+.toggle_btn span:nth-child(3) {
+  bottom: 4px;
+}
+.open .toggle_btn span {
+  background-color: #fff;
+}
+.open .toggle_btn span:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(-315deg);
+  transform: translateY(10px) rotate(-315deg);
+}
+.open .toggle_btn span:nth-child(2) {
+  opacity: 0;
+}
+.open .toggle_btn span:nth-child(3) {
+  -webkit-transform: translateY(-10px) rotate(315deg);
+  transform: translateY(-10px) rotate(315deg);
+}
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+  transition: all .5s;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+
 .float{
   margin-bottom: 30px;
 }
@@ -214,11 +335,146 @@ a{
   line-height: 2;/*文字を中央に*/
   font-size: 30px;
   color: #fff;
-  width: 300px;
+  /* width: 300px; */
   height: 70px;
   border-radius: 50px;
   margin: 10px;
  }
+
+ .formContent{
+  max-width: 80%;
+  margin: auto;
+ }
+/*============================================================
+トップ画面ボタン
+======================================================================*/
+ .custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+a.btn_06 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: repeating-linear-gradient(45deg, #ffffff, #ffffff 3px, #f6adc6 3px, #f6adc6 30px);
+  color: #333;
+  font-size: 25px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  position: relative;
+}
+a.btn_06 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  transition-duration: 0.2s;
+}
+a.btn_06:hover span {
+  left: -1px;
+  top: -1px;
+}
+
+.btn_list{
+  max-width: 80%;
+  width: 50%;
+  display: flex;
+  gap: 60px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+.main{
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.logo{
+  margin: 0 auto;
+   height: 350px;
+   margin-bottom: 30px;
+}
+
+@media screen and (max-width:480px) {
+ 
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+  .btn_list{
+    max-width: 80%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  a.btn_06 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 30px;
+    box-sizing: border-box;
+    background: repeating-linear-gradient(45deg, #ffffff, #ffffff 3px, #f6adc6 3px, #f6adc6 30px);
+    color: #333;
+    font-size: 25px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    position: relative;
+  }
+  a.btn_06 span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    transition-duration: 0.2s;
+  }
+
+  .logo{
+    margin: 0 auto;
+     margin-bottom: 30px;
+  }
+}
+
 
 .back::before{
   content: '';
@@ -251,6 +507,9 @@ a{
 
 
 .form_flame{
+  margin-top: 20px;
+  max-width: 80%;
+  margin: 0 auto;
   position: relative;
   /* margin: 2em auto; */
   padding:2.5em;/*内側余白*/
@@ -392,30 +651,6 @@ input[type="text"]{
   margin-top: 20px;
 }
 /*==========================   共通クラス終了  ===================================*/
-
-
-/*      top.blade.php         */
-.btn_list{
-  max-width: 80%;
-  text-align: center;
-  margin: 0 auto;
-}
-
-
-
-.main{
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-
-.logo{
-  max-width: 80%;
-  margin: 0 auto;
-   height: 450px;
-   margin-bottom: 30px;
-}
 
 
 /*           new.blade.php                */
@@ -628,7 +863,7 @@ section{
 .mypage_img{
   display:block;
   margin: 0 auto;
-  width: 150px;
+  width: 85px;
   height: auto;
 }
 
@@ -646,7 +881,7 @@ section{
 }
 
 .box15 {
-  margin: 50px auto;
+  margin: 15px auto;
   max-width:80%;
   padding: 20px 0;
   color: #565656;
@@ -654,6 +889,7 @@ section{
   box-shadow: 0px 0px 0px 10px #ffeaea;
   border: dashed 2px #ffc3c3;
   border-radius: 8px;
+  display: block;
 }
 
 /*          プロフィール編集画面（edit）                    */

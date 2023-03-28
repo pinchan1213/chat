@@ -2,6 +2,7 @@
 @section('content')
   <div class="back">
     <div class="content">
+      <div class="formContent">
       <div class="form_flame">
           @if($errors->any())
             <div class="alert alert-danger">
@@ -23,6 +24,7 @@
             <input type="submit" value="送信する" class="btn" >
           </form>
       </div><!--form_flame-->
+      </div><!--formContent-->
     </div><!--content-->
   </div>
 @endsection

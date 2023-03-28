@@ -4,24 +4,34 @@
 <header>
 <div class="timeline_width timeline_wrapper">
     <form method="post" class="search_form">
-    <form action="" method="get" class="search_form">
-          <div class="dropdown">
+      <!-- <form action="" method="get" class="search_form"> -->
+        <div id="navArea">
       @if(Auth::check())
-        <button class="btnB  dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button"><a href="{{ route('posts.create') }}">投稿する</a></button>
-          <button class="dropdown-item" type="button"><a href="timeline">タイムライン</a></button>
-          <button class="dropdown-item" type="button"><a href="fixed">固定タイムライン</a></button>
-          <button class="dropdown-item" type="button"><a href="talk_all">トーク一覧</a></button>
-          <button class="dropdown-item" type="button"><a href="talk">トーク</a></button>
-          <button class="dropdown-item" type="button"><a href="/">マイページ</a></button>
-          <button  id="logout" class="dropdown-item" type="button"><a href="/">ログアウト</a></button>
-      @else
-      <a href="top">topへ戻る</a>
+<nav>
+  <div class="inner">
+    <ul>
+      <li><a href="{{ route('posts.create') }}">投稿する</a></li>
+      <li><a href="timeline">タイムライン</a></li>
+      <li><a href="fixed">固定タイムライン</a></li>
+      <li><a href="{{ route('user.all') }}">ユーザー一覧</a></li>
+      <li><a href="talk">トーク</a></li>
+      <li><a href="/">マイページ</a></li>
+      <li><a href="/" id="logout">ログアウト</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="toggle_btn">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div id="mask"></div>
+     @else
+      <a href="/top">topへ戻る</a>
       @endif
-      </div>
-    </form>
-  </div><!--timeline_width-->
+   </div>
+   </form>
+</div><!--timeline_width-->
 </header>
 <main>
   <div class="timeline_content">
