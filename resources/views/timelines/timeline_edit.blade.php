@@ -44,11 +44,9 @@
     </div>
     <div class="timeline_wrapper">
     </div><!--timeline_wrapper-->
-    <form action="{{ route('timeline.update', [$post]) }}" method="post">
-      {{ csrf_field() }}
-      @method('PUT')
+    <form action="{{ route('timeline.update', ['edit' => $edit->id]) }}" method="post">
+     @csrf
       <input type="text" class="form-control" name="post" id="title" value="{{ old('post') }}" />
-      
       <button type="submit" class="move_btn">更新</button>
     </form>
     </div><!--timeline_conrent-->

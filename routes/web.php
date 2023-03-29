@@ -45,9 +45,9 @@ route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
 //タイムライン編集画面表示
-Route::get('/posts/{post}/edit', 'PostController@edit')->name('timeline.edit');
+Route::get('/posts/{edit}/edit', 'PostController@edit')->name('timeline.edit');
 //タイムライン編集内容保存
-Route::put('/timeline/{post}', 'PostController@update')->name('timeline.update');
+Route::post('/timeline/{edit}/edit', 'PostController@update')->name('timeline.update');
 //固定タイムライン処理
 // Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');

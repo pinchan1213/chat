@@ -52,7 +52,7 @@
         </div><!--timeline_flex-->
         <div class="composition p ">{{ $timeline->post }}</div>
         @if (Auth::check()) 
-          <a href="{{ route('timeline.edit',['post' => $timeline->id]) }}">編集する</a>
+          <a href="{{ route('timeline.edit',['edit' => $timeline->id]) }}">編集する</a>
           @else
             編集する権限がありません。
             @endif
