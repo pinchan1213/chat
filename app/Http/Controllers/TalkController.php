@@ -18,6 +18,14 @@ class TalkController extends Controller
         //画像や名前を取得
         $partner_info = User::find($id);
 
+        $talks = User::select('users.id','p_users.id','users.name','p_users.name','users.images','p_users.images','message')
+                    ->join('talks', 'users.id', '=', 'talks.user_id')
+                    ->join('users as p_users', 'p_users.id', '=', 'talks.partner_id')
+                    ->where('users.id',Auth::user()->id)
+                    ->orderby('talks.created_at')
+                    ->get();
+
+
         //自分の情報を取得
         $users = Talk::select('users.id','users.name','users.images','talks.partner_id', 'talks.message','talks.created_at')
         ->join('users', 'talks.user_id', '=', 'users.id')

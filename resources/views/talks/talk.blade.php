@@ -42,6 +42,7 @@
       <img src="{{ isset($partner_info->images) ? asset('storage/images/' . $partner_info->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
       <h3 class="user p fixUser">{{ $partner_info->name }}</h3>
       <p>{{ $partner->message }}</p>
+      <li>{{$partner->created_at->format('H:i')}}</li>
     </div>
     @endif
     @endforeach
@@ -74,3 +75,18 @@
   </form>
 </footer>
 @endsection
+
+
+
+{{--
+@foreach ($chats as $chat)
+    <li class="text-xs @if($chat->user_identifier == $user['identifier']) text-right @endif">
+      {{$chat->created_at->format('H:i')}} {{$chat->user_name}}
+    </li>
+    <li class="w-max max-w-full break-words mb-3 p-2 balloon1-right rounded-lg bg-blue-200 relative 
+      @if($chat->user_identifier == $user['identifier']) 
+        self ml-auto @else other 
+      @endif">
+      {{$chat->message}}
+    </li>
+@endforeach--}}
