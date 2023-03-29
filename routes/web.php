@@ -44,6 +44,10 @@ route::get('post','PostController@showTimelinePage')->name('posts.create');
 route::post('post','PostController@create');
 //タイムライン一覧表示
 Route::get('/timeline', 'TimelineController@index')->name('timelines.index');
+//タイムライン編集画面表示
+Route::get('/posts/{post}/edit', 'PostController@edit')->name('timeline.edit');
+//タイムライン編集内容保存
+Route::put('/timeline/{post}', 'PostController@update')->name('timeline.update');
 //固定タイムライン処理
 // Route::get('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
 Route::post('/timeline/fixed','TimelineController@fixed')->name('timelines.fixed');
@@ -62,9 +66,6 @@ Route::post('/talk', 'TalkController@create')->name('talks.create');//トーク�
 Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');
 
 //マイページ編集画面
-Route::get('/edit',function(){
-    return view('edit');
-});
 Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');

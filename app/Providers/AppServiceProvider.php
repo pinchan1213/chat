@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // $this->app->make('Edit::class');
             // if (App::environment('production','staging')) {
             // URL::forceScheme('https');
             // }
