@@ -110,6 +110,34 @@ html, body {
   background-image:  repeating-linear-gradient(to right, #ffc107, #ffc107 2px, #ffe9a7 2px, #ffe9a7);
 }
 
+.Paper {
+  background-image:  linear-gradient(#ffc107 4px, transparent 4px), linear-gradient(90deg, #ffc107 4px, transparent 4px), linear-gradient(#ffc107 2px, transparent 2px), linear-gradient(90deg, #ffc107 2px, #ffe9a7 2px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -4px -4px, -4px -4px, -2px -2px, -2px -2px;
+}
+
+
+.sample_box11 {
+  max-width: 80%;/* 紙の横幅 100%にすると全幅表示に */
+  padding: 15px;
+  margin: 2em auto;
+  background: #fff;/* 紙の色 */
+  color: #000;/* 文字色 */
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
+  word-break: break-all;
+}
+
+
+.sample_box11_tape {
+  width: 50%;
+  height: 50px;
+  margin: -25px auto 0;
+  background: #989898;
+  transform: rotate(-3deg);
+  opacity: 0.1;
+}
+
+
 * {
   box-sizing: border-box;
 }

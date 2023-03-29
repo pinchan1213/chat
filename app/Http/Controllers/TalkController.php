@@ -40,15 +40,13 @@ class TalkController extends Controller
     }
 
     public function create(Request $request){//トーク送信処理
-        
-        $patner =User::all()->except([Auth::id()]);
-        // dd($patner);
+
         $talk = new Talk();
         $talk->user_id = Auth::user()->id;
         $talk->name = Auth::user()->name;
         $talk->comment_num = 1;
         $talk->message = $request->message;
-        $talk->partner_id = $patner;
+        $talk->partner_id = $request->partner_id;
         $talk->save();
         return back();
     }

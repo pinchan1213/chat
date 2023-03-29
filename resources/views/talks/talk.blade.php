@@ -69,6 +69,7 @@
       <input type="text" name="message" id="talk" class="search">
       <button type="submit" class="talk_btn"></button>
     </div>
+    <input type="hidden" name="partner_id" value="{{ $partner_info->id }}">
   </form>
 </footer>
 @endsection

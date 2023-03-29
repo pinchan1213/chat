@@ -1,5 +1,6 @@
 @extends('template')
 @section('content')
+<div class="bg_pattern Paper"></div>
 <header class="header float top">
 <div class="timeline_width timeline_wrapper">
     <form method="post" class="search_form">
@@ -31,20 +32,23 @@
    </form>
 </div><!--timeline_width-->
     </header>
+    <div class="sample_box11">
+    <div class="sample_box11_tape"> </div>
     <div class="container">
     <section>
 <table class="table">
-    <div class="user_group">
-      @foreach($users as $user)
-        <tr>
-            <td>
-            <img src="{{ isset($user->images) ? asset('storage/images/' . $user->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
+  <div class="user_group">
+    @foreach($users as $user)
+      <tr>
+        <td>
+          <img src="{{ isset($user->images) ? asset('storage/images/' . $user->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
             </td>
             <td><a href="{{ route('talks', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
         </tr>
         <!-- <div class="line gap"></div> -->
-      @endforeach
-     </div>
+        @endforeach
+      </div><!--user_group-->
+    </div>
 </table>
 </section>
 </div>
