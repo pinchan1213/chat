@@ -21,7 +21,7 @@ use App\Http\Controllers\UserController;
 |
 */
 // ログイン前のトップ画面
-Route::get('/',function(){
+Route::get('/top',function(){
     return view('top');
 });
 
@@ -66,6 +66,10 @@ Route::post('/talk', 'TalkController@create')->name('talks.create');//トーク�
 Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');
 
 //マイページ編集画面
+Route::get('/edit',function(){
+    return view('edit');
+});
+
 Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');
