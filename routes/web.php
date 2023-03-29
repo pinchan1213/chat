@@ -69,7 +69,6 @@ Route::get('/user', 'UserAllContrller@showUserAll')->name('user.all');
 Route::get('/edit',function(){
     return view('edit');
 });
-
 Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');

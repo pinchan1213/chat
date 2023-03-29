@@ -15,8 +15,8 @@
             @csrf
             <label class="text ">メールアドレス</label>
             <input type="text" name="email" id="email" value="{{ old('email') }}">
-            <label class="text">パスワード</label>
-            <input type="text" name="password" id="password">
+            <label class="text">パスワード</label><br>
+            <input type="password" name="password" id="password">
             <input type="submit" value="ログイン" class="btn_04" >
           </form>
           <a href="email">パスワードをお忘れの方はこちらから</a>

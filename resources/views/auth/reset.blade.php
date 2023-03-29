@@ -18,9 +18,9 @@
             <label class="text">メールアドレス</label>
             <input type="text" name="email" id="email" value="{{ old('email') }}">
             <label class="text">パスワード</label>
-            <input type="text" name="password" id="password">
+            <input type="password" name="password" id="password">
             <label class="text">確認用パスワード</label>
-            <input type="text" name="password_confirmation" id="password-confirm">
+            <input type="password" name="password_confirmation" id="password-confirm">
             <input type="submit" value="送信する" class="btn_04" >
           </form>
       </div><!--form_flame-->

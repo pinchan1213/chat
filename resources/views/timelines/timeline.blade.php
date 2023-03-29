@@ -10,12 +10,12 @@
 <nav>
   <div class="inner">
     <ul>
-      <li><a href="{{ route('posts.create') }}">投稿する</a></li>
-      <li><a href="timeline">タイムライン</a></li>
-      <li><a href="fixed">固定タイムライン</a></li>
+    <li><a href="{{ route('posts.create') }}">投稿する</a></li>
+      <li><a href="{{ route('timelines.index') }}">タイムライン</a></li>
+      <li><a href="{{ route('timelines.fixed') }}">固定タイムライン</a></li>
       <li><a href="{{ route('user.all') }}">ユーザー一覧</a></li>
-      <li><a href="talk">トーク</a></li>
       <li><a href="/">マイページ</a></li>
+      <li><a href="{{ route('edit') }}">マイページ編集</a></li>
       <li><a href="/" id="logout">ログアウト</a></li>
     </ul>
   </div>

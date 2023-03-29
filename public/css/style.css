@@ -621,7 +621,7 @@ input[type="text"]{
 }
 
 .timeline_img{
-  width: 55px;
+  width: 80px;
   overflow: hidden;
 }
 
@@ -684,6 +684,7 @@ input[type="text"]{
 
 
 input{
+  width: 100%;
   display: block;
   box-sizing: border-box;
   padding: 10px;

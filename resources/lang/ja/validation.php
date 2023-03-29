@@ -15,11 +15,6 @@ return [
 
 'confirmed'=> ':attribute が確認欄と一致していません。',
 'email'=> ':attribute には有効な形式のメールアドレスを入力してください。',
-'min' => [
-    // 略
-    'string'  => ':attribute は:min文字以上で入力してください。',
-    // 略
-],
 'string'=> ':attribute には文字を入力してください。',
 
     /*
