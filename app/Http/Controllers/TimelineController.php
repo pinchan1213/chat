@@ -7,17 +7,23 @@ use App\Timeline;
 use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Facades\Auth;
 use App\Fixed;
-
+use App\User;
 
 class TimelineController extends Controller
 {
     public function index(Request $request){//タイムラインテーブルにデータを登録
         // $timelines = Timeline::orderBy('id', 'desc')->get();//タイムラインテーブルの情報を取得する
 
-        $timelines = DB::table('users')  // 主となるテーブル名
-        ->select('users.name', 'users.images', 'timelines.id', 'timelines.post')
-        ->join('timelines', 'users.id', '=', 'timelines.user_id') // 第一引数に結合するテーブル名、第二引数に主テーブルの結合キー、第四引数に結合するテーブルの結合キーを記述
-        ->orderBy('id', 'desc')
+        // $timelines = DB::table('users')  // 主となるテーブル名
+        // ->select('users.name', 'users.images', 'timelines.id', 'timelines.post')
+        // ->join('timelines', 'users.id', '=', 'timelines.user_id') // 第一引数に結合するテーブル名、第二引数に主テーブルの結合キー、第四引数に結合するテーブルの結合キーを記述
+        // ->orderBy('id', 'desc')
+        // ->get();
+
+        $timelines =Timeline::select('users.name','users.images','timelines.id','timelines.post','fixed.timeline_id')
+        ->leftjoin('users','timelines.user_id','=','users.id')
+        ->leftjoin('fixed', 'timelines.id', '=', 'fixed.timeline_id')
+        ->orderBy('timelines.id', 'desc')
         ->get();
 
         //ログインしているユーザーIDを取得
@@ -55,8 +61,6 @@ class TimelineController extends Controller
     ->join('fixed','timelines.id','=','fixed.timeline_id')
     ->join('users', 'timelines.user_id', '=', 'users.id')
     ->get();
-
-    // dd($timelines);
 
     return view('timelines.fixed_timeline',[
       // 'display_all' =>$display_all,

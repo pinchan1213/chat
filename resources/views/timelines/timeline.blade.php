@@ -46,7 +46,7 @@
           <h3 class="user p fixUser">{{ $timeline->name }}</h3>
           <div class="pin_img">
             <button class="js_fix" data-timeline_id="{{ $timeline->id }}">
-            <i class="fa-solid fix fa-thumbtack" data-id="{{ $timeline->id }}"></i>
+            <i class="fa-solid fix fa-thumbtack {{ isset($timeline->timeline_id) ? 'font-color-red' : '' }}" data-id="{{ $timeline->id }}"></i>
             </button>
           </div>
         </div><!--timeline_flex-->

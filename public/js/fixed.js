@@ -56,5 +56,3 @@ $(".fix").on("click", function () {
       $nav.removeClass( open );
     });
   } )(jQuery);
-
-  
