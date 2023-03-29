@@ -17,7 +17,7 @@
             <input type="text" name="email" id="email" value="{{ old('email') }}">
             <label class="text">パスワード</label>
             <input type="text" name="password" id="password">
-            <input type="submit" value="ログイン" class="btn" >
+            <input type="submit" value="ログイン" class="btn_04" >
           </form>
           <a href="email">パスワードをお忘れの方はこちらから</a>
           <!-- <a href="{{ route('password.email') }}">パスワードをお忘れの方はこちらから</a> -->

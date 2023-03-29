@@ -158,7 +158,47 @@ html, body {
 }
 
 
-
+/* ログインボタン実装 */
+.btn_04 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  background: #950042;
+  border: 1px solid #950042;
+  box-sizing: border-box;
+  padding: 0 25px 0 40px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+.btn_04:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  margin-top: -6px;
+}
+.btn_04:hover {
+  background: #fff;
+  color: #950042;
+}
+a.btn_04:hover:before {
+  border-top: 2px solid #950042;
+  border-right: 2px solid #950042;
+}
 
 
 img{
@@ -190,17 +230,6 @@ a{
 
 .p{
   font-family: 'Courier New', Courier, monospace;
-}
-
-.btnB {
-  text-align: center;
-  background-color: #f6adc6;
-  line-height: 2;/*文字を中央に*/
-  font-size: 30px;
-  color: #fff;
-  width: 200px;
-  height: 70px;
-  border: none;
 }
 
 /*==================================================================  共通クラス============================================*/
@@ -257,7 +286,7 @@ nav .inner ul li a:hover {
   }
 }
 /*============
-.toggle_btn
+.toggle_btn  ドロワーメニュー
 =============*/
 .toggle_btn {
   display: block;
@@ -332,19 +361,6 @@ nav .inner ul li a:hover {
 .top{
   padding-top: 20px;
 }
-
-.btn {
-  text-align: center;
-  margin: 0 auto;
-  background-color: #f6adc6;
-  line-height: 2;/*文字を中央に*/
-  font-size: 30px;
-  color: #fff;
-  /* width: 300px; */
-  height: 70px;
-  border-radius: 50px;
-  margin: 10px;
- }
 
  .formContent{
   max-width: 80%;

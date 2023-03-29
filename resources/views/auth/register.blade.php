@@ -21,7 +21,7 @@
             <input type="text" name="password" id="password">
             <label class="text">確認用パスワード</label>
             <input type="text" name="password_confirmation" id="password-confirm">
-            <input type="submit" value="送信する" class="btn" >
+            <input type="submit" value="送信する" class="btn_04" >
           </form>
       </div><!--form_flame-->
       </div><!--formContent-->
