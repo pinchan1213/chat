@@ -49,4 +49,4 @@ RUN php artisan config:clear
 
 # ここを追記（マイグレーションの実行）
 # --force オプションで、対話無しで実行
-RUN php artisan migrate --force
+RUN php artisan migrate:fresh --force
