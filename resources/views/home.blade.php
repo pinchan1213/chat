@@ -34,7 +34,7 @@
         <img src="{{ isset(Auth::user()->images) ? asset('storage/images/' . Auth::user()->images) : asset('images/human.png')  }}" alt="">
         </div>
         <div class="mypage_name top">{{ optional(Auth::user())->name }}</div>
-        <div class="mypage_name float ">{{ optional(Auth::user())->email }}</div>
+        <div class="mypage_email float ">{{ optional(Auth::user())->email }}</div>
         <div class="_a"><a href="edit">変更する</a></div>
     </div><!---mypagecontent-->
       </div><!-- mypage_wrapper  -->
