@@ -44,5 +44,7 @@ class PostController extends Controller
        $edit->post = $request->input('post');
        $edit->save();
 
+       return redirect()->route('timelines.index');
+
    }
 }

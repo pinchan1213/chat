@@ -19,8 +19,8 @@
             <input type="password" name="password" id="password">
             <input type="submit" value="ログイン" class="btn_04" >
           </form>
+          <a href="top">会員登録はこちらから</a><br>
           <a href="email">パスワードをお忘れの方はこちらから</a>
-          <!-- <a href="{{ route('password.email') }}">パスワードをお忘れの方はこちらから</a> -->
       </div><!--form_flame-->
     </div><!--content-->
   </div>

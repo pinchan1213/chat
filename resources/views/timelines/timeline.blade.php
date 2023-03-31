@@ -44,6 +44,11 @@
         <!-- プロフィール写真  -->
         <img src="{{ isset($timeline->images) ? asset('storage/images/' . $timeline->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
           <h3 class="user p fixUser">{{ $timeline->name }}</h3>
+          @if (Auth::check()) 
+          <a href="{{ route('timeline.edit',['edit' => $timeline->id]) }}">編集する</a>
+          @else
+            編集する権限がありません。
+            @endif
           <div class="pin_img">
             <button class="js_fix" data-timeline_id="{{ $timeline->id }}">
             <i class="fa-solid fix fa-thumbtack {{ isset($timeline->timeline_id) ? 'font-color-red' : '' }}" data-id="{{ $timeline->id }}"></i>
@@ -51,11 +56,6 @@
           </div>
         </div><!--timeline_flex-->
         <div class="composition p ">{{ $timeline->post }}</div>
-        @if (Auth::check()) 
-          <a href="{{ route('timeline.edit',['edit' => $timeline->id]) }}">編集する</a>
-          @else
-            編集する権限がありません。
-            @endif
         <div class="line gap"></div>
         <div class="float"></div>
         @endforeach
