@@ -22,7 +22,7 @@ class CreateTimelinesTable extends Migration
             $table->tinyInteger('timeline_fixed')->nullable();
             $table->timestamps();
             
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 
