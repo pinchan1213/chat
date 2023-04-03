@@ -2,5 +2,6 @@
 vendor/
 node_modules/
 .dockerignore
-.gitignore
+.git
+ignore
 .git
