@@ -24,7 +24,7 @@ class CreateTalksTable extends Migration
             $table->integer('partner_id');
             $table->timestamps();
 
-            $table->softDeletes();
+            // $table->softDeletes();
 
              // 外部キーを設定する
              $table->foreign('user_id')->references('id')->on('users');
