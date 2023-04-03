@@ -35,26 +35,22 @@
 <section>
   <div class="talk scroll">
     <!-- 相手側 -->
-    @foreach($partners as $partner)
-    @if($partner->id == Auth::user()->id && $partner->user_id == $partner_id)
+    @foreach($talks as $talk)
+    @if($talk->user_id != Auth::user()->id)
     <div class="balloon-009">
       <!-- ユーザー側プロフィール、名前表示 -->
       <img src="{{ isset($partner_info->images) ? asset('storage/images/' . $partner_info->images) : asset('images/human.png')  }}" alt="" class="timeline_img fix">
       <h3 class="user p fixUser">{{ $partner_info->name }}</h3>
-      <p>{{ $partner->message }}</p>
-      <li>{{$partner->created_at->format('H:i')}}</li>
+      <p>{{ $talk->message }}</p>
+      <li>{{$talk->created_at->format('H:i')}}</li>
     </div>
-    @endif
-    @endforeach
-
+    @else
     <!-- 自分側 -->
-    @foreach ($users as $user)
-    @if($user->id == Auth::user()->id && $user->partner_id == $partner_id)
       <div class="talk_fixed">
-        <li>{{$user->created_at->format('H:i')}}</li>
+        <li>{{$talk->created_at->format('H:i')}}</li>
         <div class="balloon-010">
           <ul class="ul_right">
-            <li class="talk_text">{{ $user->message }}</li>
+            <li class="talk_text">{{ $talk->message }}</li>
           </ul>
         </div>
       </div><!--talk_fixed-->
