@@ -36,7 +36,7 @@ Route::get('/reset',function(){
 
 
 //ミドルウェア認証
-Route::group(['middleware' => 'auth'], function() {
+// Route::group(['middleware' => 'auth'], function() {
 //ログイン後のアクセスページ
 Route::get('/', 'HomeController@index')->name('home');
 //タイムライン投稿
@@ -72,7 +72,7 @@ Route::get('/edit',function(){
 Route::post('/edit','UsersController@profileupdate')->name('edit');
 //ログアウト
 Route::get('/logout', 'Auth\LoginController@logout');
-});//ミドルウェア認証終わり
+// });//ミドルウェア認証終わり
 
 
 // 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義
