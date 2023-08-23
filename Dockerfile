@@ -2,15 +2,10 @@
 FROM php:8.0.0-apache
 
 # コンテナに必要なパッケージ(zip、unzip、git)をインストール
-# ここを追記 libpq-dev（PHPからPostgreSQLに接続するために必要なライブラリ）
 RUN apt-get update && apt-get install -y \
   zip \
   unzip \
-  git \
-  libpq-dev
-
-# ここを追記（PostgreSQLのドライバをインストール）
-RUN docker-php-ext-install pdo_pgsql
+  git
 
 # PHPアプリケーションの処理を高速化する拡張機能をインストール
 RUN docker-php-ext-install -j "$(nproc)" opcache && docker-php-ext-enable opcache
@@ -45,7 +40,3 @@ RUN composer install
 
 # APP_KEYの表示
 RUN php artisan key:generate --show
-
-# ここを追記（マイグレーションの実行）
-# --force オプションで、対話無しで実行
-RUN php artisan migrate --force
