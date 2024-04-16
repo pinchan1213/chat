@@ -10,6 +10,7 @@ use App\Mail\ResetPassword;
 
 class User extends Authenticatable
 {
+    
     use Notifiable;
     protected $guarded = array('id');
 
