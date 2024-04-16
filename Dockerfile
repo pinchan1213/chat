@@ -1,7 +1,9 @@
 # 公式のPHP 8.0.0イメージにApache web serverがプリインストールされたベースイメージを設定
-FROM php:8.2.4-apache
+FROM php:8.0.0-apache
 
 # コンテナに必要なパッケージ(zip、unzip、git)をインストール
+# ここを修正 git \
+# ここを追記 libpq-dev（PHPからPostgreSQLに接続するために必要なライブラリ）
 RUN apt-get update && apt-get install -y \
   zip \
   unzip \
@@ -43,8 +45,8 @@ RUN chown -Rf www-data:www-data ./
 RUN composer install
 
 # APP_KEYの表示
-# RUN php artisan key:generate --show
+# ここを修正（不要の為、コメントアウト）RUN php artisan key:generate --show
 
 # ここを追記（マイグレーションの実行）
 # --force オプションで、対話無しで実行
-# RUN php artisan migrate --force
+RUN php artisan migrate --force
